@@ -3,20 +3,19 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>DevOps Learning Journey</title>
+  <title>Jason VanDeventer | DevOps Engineer</title>
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
   <header>
     <div class="container">
       <div class="header-content">
-        <div class="logo">Jason's DevOps Journey</div>
+        <div class="logo">Jason VanDeventer</div>
         <nav>
           <ul>
-            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
             <li><a href="#skills">Skills</a></li>
             <li><a href="#projects">Projects</a></li>
-            <li><a href="#timeline">Timeline</a></li>
             <li><a href="#contact">Contact</a></li>
           </ul>
         </nav>
@@ -24,40 +23,76 @@
     </div>
   </header>
 
-  <section id="home" class="hero">
-    <div class="floating-elements">
-      <div class="floating-element"></div>
-      <div class="floating-element"></div>
-      <div class="floating-element"></div>
-    </div>
+  <section id="about" class="hero">
     <div class="container">
       <div class="hero-content">
-        <h1>DevOps Mastery Journey</h1>
-        <p>From technical support and systems analysis to DevOps engineering - leveraging 15+ years of troubleshooting expertise to build robust CI/CD pipelines and automated solutions. Currently maintaining critical infrastructure for US DoD environments while continuously expanding my DevOps toolkit.</p>
-        <a href="#skills" class="cta-button">Explore My Skills</a>
+        <h1>DevOps Engineer | Cloud Architect | Automation Enthusiast</h1>
+        <p>Driven DevOps Engineer with 15+ years in IT, now designing secure cloud infrastructure, CI/CD pipelines, and containerized deployments. Actively seeking impactful opportunities in DevOps and cloud engineering.</p>
+        <a href="#projects" class="cta-button">View My Work</a>
       </div>
     </div>
   </section>
 
   <section id="skills" class="skills">
-    <!-- Skills Section Placeholder (content comes from styles.css and original index) -->
+    <div class="container">
+      <h2 class="section-title animate-on-scroll">Technical Skills</h2>
+      <div class="skills-grid">
+        <div class="skill-card animate-on-scroll"><div class="skill-icon">🐳</div><h3>Containerization</h3><p>Docker, Kubernetes</p></div>
+        <div class="skill-card animate-on-scroll"><div class="skill-icon">☁️</div><h3>Cloud Platforms</h3><p>AWS, Azure, Terraform</p></div>
+        <div class="skill-card animate-on-scroll"><div class="skill-icon">🔧</div><h3>CI/CD</h3><p>GitHub Actions, GitLab CI</p></div>
+        <div class="skill-card animate-on-scroll"><div class="skill-icon">🔒</div><h3>Security</h3><p>IAM, Security Groups, DevSecOps</p></div>
+      </div>
+    </div>
   </section>
 
   <section id="projects" class="projects">
-    <!-- Projects Section Placeholder -->
-  </section>
+    <div class="container">
+      <h2 class="section-title animate-on-scroll">Featured Projects</h2>
+      <div class="projects-grid">
 
-  <section id="timeline" class="timeline">
-    <!-- Timeline Section Placeholder -->
+        <div class="project-card animate-on-scroll">
+          <div class="project-header">
+            <h3 class="project-title">AWS DevOps Capstone</h3>
+            <a href="https://github.com/jasonvandeventer/terraform_capstone" class="github-link">GitHub Repo⭐</a>
+          </div>
+          <p>Deployed full AWS infrastructure with Terraform, EC2, ALB, S3, Route 53, ACM, CI/CD with GitHub Actions. Designed for scalability and security, follows AWS best practices.</p>
+          <a href="https://aws.vanfreckle.com" target="_blank">▶ Live Site</a>
+        </div>
+
+        <div class="project-card animate-on-scroll">
+          <div class="project-header">
+            <h3 class="project-title">Dockerized Static Website</h3>
+            <a href="https://github.com/jasonvandeventer/docker-static-site" class="github-link">GitHub Repo⭐</a>
+          </div>
+          <p>Multi-stage Docker image serving a static site via Nginx. Scanned with Trivy. Final image: ~22 MB. Deployed on EC2.</p>
+          <a href="http://static.vanfreckle.com" target="_blank">▶ Live Demo</a>
+        </div>
+
+        <div class="project-card animate-on-scroll">
+          <div class="project-header">
+            <h3 class="project-title">CI/CD Pipeline - Python</h3>
+            <a href="https://github.com/jasonvandeventer/github-actions-ci" class="github-link">GitHub Repo⭐</a>
+          </div>
+          <p>GitHub Actions pipeline that runs flake8 and pytest on each push/PR. Auto-fails on errors to ensure quality before merge.</p>
+        </div>
+
+        <div class="project-card animate-on-scroll">
+          <div class="project-header">
+            <h3 class="project-title">Terraform VPC Lab</h3>
+            <a href="https://github.com/jasonvandeventer/terraform-vpc-lab" class="github-link">GitHub Repo⭐</a>
+          </div>
+          <p>Provisioned a full VPC with public/private subnets, IGW, route tables, and security groups—using modular Terraform.</p>
+        </div>
+      </div>
+    </div>
   </section>
 
   <footer id="contact">
     <div class="container">
-      <div class="social-links">
-        <a href="https://github.com/jasonvandeventer" class="social-link">GitHub</a>
-        <a href="mailto:jason@vanfreckle.com" class="social-link">Email</a>
-        <a href="https://linkedin.com/in/jasonvandeventer" class="social-link">LinkedIn</a>
-      </div>
+      <h2 class="section-title">Let’s Connect</h2>
+      <p>Email: <a href="mailto:jason@vanfreckle.com">jason@vanfreckle.com</a></p>
+      <p>GitHub: <a href="https://github.com/jasonvandeventer" target="_blank">github.com/jasonvandeventer</a></p>
+      <p>LinkedIn: <a href="https://linkedin.com/in/jasonvandeventer" target="_blank">linkedin.com/in/jasonvandeventer</a></p>
       <p>&copy; 2025 Jason VanDeventer. Built with passion for automation and continuous learning.</p>
     </div>
   </footer>
