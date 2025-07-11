@@ -34,8 +34,6 @@ Hosted on **GitHub Pages** with a custom domain via a `CNAME` record.
 | Project | Description | Live Link | Repo |
 |--------|-------------|-----------|------|
 | **AWS DevOps Capstone** | Scalable AWS infrastructure using Terraform, deployed with GitHub Actions | [Live Site](https://aws.vanfreckle.com) | [Repo](https://github.com/jasonvandeventer/terraform_capstone) |
-| **Dockerized Static Site** | Nginx-hosted site via a multi-stage Docker build | [Live Demo](http://static.vanfreckle.com) | [Repo](https://github.com/jasonvandeventer/docker-static-site) |
-| **CI/CD Pipeline – Python** | GitHub Actions pipeline for linting + testing Python code | – | [Repo](https://github.com/jasonvandeventer/github-actions-ci) |
 | **Terraform VPC Lab** | Custom VPC with public/private subnets + secure routing | – | [Repo](https://github.com/jasonvandeventer/terraform-vpc-lab) |
 
 ---
