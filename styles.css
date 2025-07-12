@@ -546,3 +546,16 @@ footer {
     opacity: 1;
     transform: translateY(0);
 }
+
+header {
+    position: sticky;
+    top: 0;
+    background-color: #000a1f;
+    z-index: 1000;
+    padding: 1rem 0;
+}
+
+.project-detail {
+    padding-top: 3rem;
+    /* Prevent header overlap */
+}
