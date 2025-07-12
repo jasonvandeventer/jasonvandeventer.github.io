@@ -251,7 +251,7 @@ nav a:hover::after {
 }
 
 .project-detail {
-  padding-top: 6rem;
+  padding-top: 100px;
   background-color: #1a1a2e;
   border-radius: 16px;
   padding: 2rem;
