@@ -32,10 +32,10 @@ Built with **HTML, CSS, and Vanilla JavaScript**, this site is hosted on **GitHu
 
 ## 🌐 Live Projects
 
-| Project                | Description                                                        | Live Link                                      | Repo                                                                 |
-|------------------------|--------------------------------------------------------------------|------------------------------------------------|----------------------------------------------------------------------|
-| **AWS DevOps Capstone**| Scalable AWS infrastructure with ALB, EC2, S3, Route 53, ACM, GitHub Actions, and HTTPS | [Live Site](https://capstone.vanfreckle.com)  | [Repo](https://github.com/jasonvandeventer/terraform_capstone)      |
-| **Terraform VPC Lab**  | Custom AWS VPC with public/private subnets, NAT Gateway, and modular design | –                                              | [Repo](https://github.com/jasonvandeventer/terraform-vpc-lab)       |
+| Project                 | Description                                                                             | Live Link                                    | Repo                                                           |
+| ----------------------- | --------------------------------------------------------------------------------------- | -------------------------------------------- | -------------------------------------------------------------- |
+| **AWS DevOps Capstone** | Scalable AWS infrastructure with ALB, EC2, S3, Route 53, ACM, GitHub Actions, and HTTPS | [Live Site](https://capstone.vanfreckle.com) | [Repo](https://github.com/jasonvandeventer/terraform_capstone) |
+| **Terraform VPC Lab**   | Custom AWS VPC with public/private subnets, NAT Gateway, and modular design             | –                                            | [Repo](https://github.com/jasonvandeventer/terraform-vpc-lab)  |
 
 ---
 
@@ -71,4 +71,4 @@ Built with **HTML, CSS, and Vanilla JavaScript**, this site is hosted on **GitHu
 
 MIT © [Jason VanDeventer](https://github.com/jasonvandeventer)
 
-*Built with 💻 and ☁️ for the modern DevOps journey.*
+_Built with 💻 and ☁️ for the modern DevOps journey._

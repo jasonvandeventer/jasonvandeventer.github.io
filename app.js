@@ -1,10 +1,11 @@
 // app.js
 
 // Smooth scrolling for anchor links
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
   anchor.addEventListener('click', function (e) {
     e.preventDefault();
-    document.querySelector(this.getAttribute('href'))
+    document
+      .querySelector(this.getAttribute('href'))
       .scrollIntoView({ behavior: 'smooth', block: 'start' });
   });
 });
@@ -12,20 +13,19 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 // Header background on scroll
 window.addEventListener('scroll', () => {
   const header = document.querySelector('header');
-  header.style.background = window.scrollY > 100
-    ? 'rgba(15, 23, 42, 0.95)'
-    : 'rgba(15, 23, 42, 0.8)';
+  header.style.background =
+    window.scrollY > 100 ? 'rgba(15, 23, 42, 0.95)' : 'rgba(15, 23, 42, 0.8)';
 });
 
 // Animate on scroll
 const observerOptions = { threshold: 0.1, rootMargin: '0px 0px -50px 0px' };
 const observer = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
+  entries.forEach((entry) => {
     if (entry.isIntersecting) entry.target.classList.add('visible');
   });
 }, observerOptions);
 
-document.querySelectorAll('.animate-on-scroll').forEach(el => observer.observe(el));
+document.querySelectorAll('.animate-on-scroll').forEach((el) => observer.observe(el));
 
 // Typing effect
 const heroText = document.querySelector('.hero h1');
@@ -44,7 +44,7 @@ window.addEventListener('load', () => {
 });
 
 // Project-card hover
-document.querySelectorAll('.project-card').forEach(card => {
+document.querySelectorAll('.project-card').forEach((card) => {
   card.addEventListener('mouseenter', () => {
     card.style.transform = 'translateY(-10px) scale(1.02)';
   });
@@ -54,16 +54,19 @@ document.querySelectorAll('.project-card').forEach(card => {
 });
 
 // Progress bar animation
-const progressObserver = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      const fill = entry.target.querySelector('.progress-fill');
-      fill && (fill.style.animationPlayState = 'running');
-    }
-  });
-}, { threshold: 0.5 });
+const progressObserver = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        const fill = entry.target.querySelector('.progress-fill');
+        fill && (fill.style.animationPlayState = 'running');
+      }
+    });
+  },
+  { threshold: 0.5 }
+);
 
-document.querySelectorAll('.skill-card').forEach(card => progressObserver.observe(card));
+document.querySelectorAll('.skill-card').forEach((card) => progressObserver.observe(card));
 
 // Particle effect
 function createParticle() {
