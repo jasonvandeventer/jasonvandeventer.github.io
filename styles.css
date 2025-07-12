@@ -134,6 +134,54 @@ nav a:hover::after {
   box-shadow: 0 8px 25px rgba(59, 130, 246, 0.4);
 }
 
+/* About Section */
+.about-section {
+  max-width: 960px;
+  margin: 5rem auto;
+  padding: 2rem;
+  color: #e2e8f0;
+}
+
+/* Certification Section */
+.cert-section {
+  padding: 4rem 1.5rem;
+  background-color: #1e293b; /* matches your theme */
+  color: #e2e8f0;
+  max-width: 960px;
+  margin: 0 auto;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.cert-section h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.cert-section ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.cert-section li {
+  font-size: 1.1rem;
+  margin-bottom: 0.75rem;
+  position: relative;
+  padding-left: 1.5rem;
+}
+
+.cert-section li::before {
+  content: '✔';
+  position: absolute;
+  left: 0;
+  color: #38bdf8; /* accent cyan */
+}
+
+.cert-section {
+  scroll-margin-top: 100px; /* prevents nav from covering header on scroll */
+}
+
 /* Floating Elements */
 .floating-elements {
   position: absolute;
