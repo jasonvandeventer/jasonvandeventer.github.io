@@ -198,6 +198,24 @@ nav a:hover::after {
   color: #38bdf8;
 }
 
+.cert-badges {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.cert-badges img {
+  width: 100px;
+  transition: transform 0.3s ease;
+  border-radius: 12px;
+}
+
+.cert-badges img:hover {
+  transform: scale(1.1);
+}
+
 /* Floating Elements */
 .floating-elements {
   position: absolute;
@@ -546,6 +564,46 @@ footer {
 
 .social-link:hover {
   color: #3b82f6;
+}
+
+.contact-form {
+  max-width: 600px;
+  margin: 2rem auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.contact-form input,
+.contact-form textarea {
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  border: none;
+  font-size: 1rem;
+  background-color: #0f172a;
+  color: #e2e8f0;
+  border: 1px solid #334155;
+}
+
+.contact-form textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.contact-form button {
+  padding: 0.75rem 1.5rem;
+  background: linear-gradient(45deg, #3b82f6, #06b6d4);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.contact-form button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(59, 130, 246, 0.3);
 }
 
 /* Animations */
