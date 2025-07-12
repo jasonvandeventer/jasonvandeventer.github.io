@@ -136,50 +136,66 @@ nav a:hover::after {
 
 /* About Section */
 .about-section {
+  background: rgba(30, 41, 59, 0.5);
+  border-radius: 16px;
   max-width: 960px;
   margin: 5rem auto;
-  padding: 2rem;
+  padding: 3rem;
   color: #e2e8f0;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.about-section h2 {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  color: #f1f5f9;
+}
+
+.about-section p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
 }
 
 /* Certification Section */
 .cert-section {
-  padding: 4rem 1.5rem;
-  background-color: #1e293b; /* matches your theme */
-  color: #e2e8f0;
+  background: rgba(30, 41, 59, 0.5);
+  border-radius: 16px;
   max-width: 960px;
-  margin: 0 auto;
-  border-radius: 12px;
+  margin: 5rem auto;
+  padding: 3rem;
+  color: #e2e8f0;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  scroll-margin-top: 100px;
 }
 
 .cert-section h2 {
-  font-size: 2rem;
-  margin-bottom: 1rem;
   text-align: center;
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  color: #f1f5f9;
 }
 
 .cert-section ul {
-  list-style-type: none;
-  padding-left: 0;
+  list-style: none;
+  padding: 0;
 }
 
 .cert-section li {
   font-size: 1.1rem;
-  margin-bottom: 0.75rem;
-  position: relative;
+  margin-bottom: 1rem;
   padding-left: 1.5rem;
+  position: relative;
 }
 
 .cert-section li::before {
   content: '✔';
   position: absolute;
   left: 0;
-  color: #38bdf8; /* accent cyan */
-}
-
-.cert-section {
-  scroll-margin-top: 100px; /* prevents nav from covering header on scroll */
+  color: #38bdf8;
 }
 
 /* Floating Elements */
