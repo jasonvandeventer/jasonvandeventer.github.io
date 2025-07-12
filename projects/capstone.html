@@ -29,8 +29,9 @@
     <section class="project-detail">
         <div class="container">
             <h1 class="section-title">AWS DevOps Capstone Project</h1>
-            <p class="subtitle">A fully automated, production-ready AWS infrastructure built with Terraform, GitHub
-                Actions, and security best practices.</p>
+            <p class="subtitle">A fully automated, production-ready AWS infrastructure built with
+                <strong>Terraform</strong>, <strong>GitHub Actions</strong>, and security best practices.
+            </p>
 
             <div class="badges">
                 <img src="https://img.shields.io/badge/IaC-Terraform-844FBA?logo=terraform" alt="Terraform" />
@@ -45,33 +46,93 @@
                     Repo</a>
             </div>
 
+            <h2>📊 Architecture Diagram</h2>
+            <div class="mermaid">
+                graph TD
+                igw[Internet Gateway]
+
+                subnet1[Public Subnet AZ1]
+                subnet2[Public Subnet AZ2]
+
+                alb[Application Load Balancer]
+
+                ec2a[EC2 Instance AZ1]
+                ec2b[EC2 Instance AZ2]
+
+                rds[RDS - PostgreSQL]
+                dynamodb[DynamoDB Table]
+
+                app1[Static App]
+                app2[Static App]
+
+                github[GitHub Actions CI/CD]
+                s3[S3 Backend Bucket]
+                ddb[DynamoDB Lock Table]
+                acm[ACM Certificate]
+                iam[IAM Role]
+
+                igw --> subnet1
+                igw --> subnet2
+
+                subnet1 --> alb
+                subnet2 --> alb
+
+                alb --> ec2a
+                alb --> ec2b
+
+                ec2a --> app1
+                ec2b --> app2
+
+                ec2a --> rds
+                ec2b --> dynamodb
+
+                github --> alb
+                github --> rds
+                github --> ec2a
+                github --> ec2b
+
+                s3 --> github
+                ddb --> github
+
+                acm --> alb
+
+                iam --> ec2a
+                iam --> ec2b
+
+                ec2a --> s3
+                ec2b --> s3
+            </div>
+
             <h2>🔑 Key Features</h2>
             <ul>
-                <li>Infrastructure as Code: Modular Terraform architecture</li>
-                <li>Secure IAM, HTTPS via ACM, and private RDS networking</li>
-                <li>CI/CD via GitHub Actions with OIDC authentication</li>
-                <li>CloudWatch logging and scalable EC2 Auto Scaling groups</li>
-                <li>Free Tier-compliant architecture where possible</li>
+                <li><strong>Infrastructure as Code:</strong> Modular Terraform architecture</li>
+                <li><strong>Security:</strong> IAM role scoping, HTTPS via ACM, private RDS networking</li>
+                <li><strong>CI/CD:</strong> GitHub Actions with OIDC authentication</li>
+                <li><strong>Scalability:</strong> EC2 Auto Scaling group behind ALB</li>
+                <li><strong>Observability:</strong> CloudWatch logs and custom metrics</li>
+                <li><strong>Cost Awareness:</strong> Free Tier-compliant infrastructure</li>
             </ul>
 
             <h2>🧠 What I Learned</h2>
             <ul>
-                <li>Architecting and deploying secure AWS infrastructure from scratch</li>
-                <li>IAM roles, GitHub OIDC integration, and Terraform remote state</li>
-                <li>Troubleshooting AWS services like CloudTrail, ALB, and Route 53</li>
-                <li>Applying DevOps best practices to real-world cloud architecture</li>
+                <li>Deployed secure, scalable cloud infrastructure using AWS best practices</li>
+                <li>Implemented least-privilege IAM roles and GitHub OIDC auth with Terraform</li>
+                <li>Diagnosed and resolved complex issues with ALB, Route 53, and CloudTrail</li>
+                <li>Built confidence using GitHub Actions for fully automated CI/CD pipelines</li>
             </ul>
 
-            <h2>🖼️ Proof of Work</h2>
+            <h2>📸 Proof of Work</h2>
             <ul>
-                <li>GitHub Actions deployment logs</li>
-                <li>Terraform apply output</li>
-                <li>Screenshots from AWS Console: EC2, ALB, RDS, Route 53</li>
-                <li>Domain: <a href="https://capstone.vanfreckle.com" target="_blank">capstone.vanfreckle.com</a></li>
+                <li>✅ GitHub Actions deployment logs</li>
+                <li>✅ Terraform apply logs</li>
+                <li>✅ AWS Console screenshots (EC2, RDS, CloudWatch, Route 53)</li>
+                <li>✅ Domain: <a href="https://capstone.vanfreckle.com" target="_blank">capstone.vanfreckle.com</a></li>
             </ul>
 
-            <p class="cta">Looking to bring DevOps talent onto your team? <a href="mailto:jason@vanfreckle.com">Let's
-                    talk</a>.</p>
+            <p class="cta">
+                🚀 I'm actively looking for DevOps roles — if you want secure, scalable AWS infrastructure built with
+                automation in mind, <a href="mailto:jason@vanfreckle.com" class="highlight-link">let’s connect</a>.
+            </p>
         </div>
     </section>
 
@@ -82,6 +143,11 @@
     </footer>
 
     <script src="/app.js"></script>
+
+    <script type="module">
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+        mermaid.initialize({ startOnLoad: true });
+    </script>
 </body>
 
 </html>

@@ -359,6 +359,26 @@ nav a:hover::after {
     text-decoration: underline;
 }
 
+.responsive-image {
+    width: 100%;
+    max-width: 100%;
+    border-radius: 8px;
+    margin-bottom: 2rem;
+}
+
+.badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.mermaid {
+    margin: 2rem 0;
+    background: #1e1e2f;
+    border-radius: 8px;
+    padding: 1rem;
+}
 
 /* Timeline Section */
 .timeline {
