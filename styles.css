@@ -207,13 +207,16 @@ nav a:hover::after {
 }
 
 .cert-badges img {
-  width: 100px;
+  width: 120px;
+  height: auto;
+  object-fit: contain;
   transition: transform 0.3s ease;
   border-radius: 12px;
+  filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.2));
 }
 
 .cert-badges img:hover {
-  transform: scale(1.1);
+  transform: scale(1.05);
 }
 
 /* Floating Elements */
