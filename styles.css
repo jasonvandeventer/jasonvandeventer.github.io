@@ -246,6 +246,18 @@ nav a:hover::after {
     padding: 5rem 0;
 }
 
+.project-detail {
+    padding-top: 6rem;
+    /* ← increased from 3rem to 6rem */
+    background-color: #1a1a2e;
+    border-radius: 16px;
+    padding: 2rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+    max-width: 960px;
+    margin: 2rem auto;
+    color: #e6e6e6;
+}
+
 .projects-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
@@ -553,9 +565,4 @@ header {
     background-color: #000a1f;
     z-index: 1000;
     padding: 1rem 0;
-}
-
-.project-detail {
-    padding-top: 3rem;
-    /* Prevent header overlap */
 }
