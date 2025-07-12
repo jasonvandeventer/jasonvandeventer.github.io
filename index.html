@@ -1,193 +1,241 @@
 <!doctype html>
 <html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Jason VanDeventer | DevOps Engineer</title>
+    <link href="styles.css" rel="stylesheet" />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+      rel="stylesheet"
+    />
 
-<head>
-  <meta charset="utf-8" />
-  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-  <title>Jason VanDeventer | DevOps Engineer</title>
-  <link href="styles.css" rel="stylesheet" />
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet" />
+    <!-- SEO & OpenGraph -->
+    <meta
+      name="description"
+      content="Jason VanDeventer | DevOps Portfolio - Terraform, AWS, CI/CD, and cloud infrastructure."
+    />
+    <meta
+      name="keywords"
+      content="DevOps, Terraform, AWS, CI/CD, GitHub Actions, Jason VanDeventer, Portfolio"
+    />
+    <meta name="author" content="Jason VanDeventer" />
+    <meta property="og:title" content="Jason VanDeventer | DevOps Portfolio" />
+    <meta
+      property="og:description"
+      content="Hands-on AWS and DevOps projects built with Terraform, GitHub Actions, and Docker."
+    />
+    <meta property="og:image" content="https://vanfreckle.com/assets/preview.png" />
+    <meta property="og:url" content="https://vanfreckle.com" />
 
-  <!-- SEO & OpenGraph -->
-  <meta name="description"
-    content="Jason VanDeventer | DevOps Portfolio - Terraform, AWS, CI/CD, and cloud infrastructure." />
-  <meta name="keywords" content="DevOps, Terraform, AWS, CI/CD, GitHub Actions, Jason VanDeventer, Portfolio" />
-  <meta name="author" content="Jason VanDeventer" />
-  <meta property="og:title" content="Jason VanDeventer | DevOps Portfolio" />
-  <meta property="og:description"
-    content="Hands-on AWS and DevOps projects built with Terraform, GitHub Actions, and Docker." />
-  <meta property="og:image" content="https://vanfreckle.com/assets/preview.png" />
-  <meta property="og:url" content="https://vanfreckle.com" />
+    <!-- Performance & Security -->
+    <link rel="preload" href="styles.css" as="style" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; script-src 'self' https://cdnjs.cloudflare.com; style-src 'self' https://cdnjs.cloudflare.com; font-src 'self' https://cdnjs.cloudflare.com; object-src 'none'; base-uri 'self';"
+    />
+  </head>
 
-  <!-- Performance & Security -->
-  <link rel="preload" href="styles.css" as="style" />
-  <meta http-equiv="Content-Security-Policy"
-    content="default-src 'self'; script-src 'self' https://cdnjs.cloudflare.com; style-src 'self' https://cdnjs.cloudflare.com; font-src 'self' https://cdnjs.cloudflare.com; object-src 'none'; base-uri 'self';" />
-</head>
-
-<body>
-  <header>
-    <div class="container">
-      <div class="header-content">
-        <div class="logo">Jason VanDeventer</div>
-        <nav>
-          <ul>
-            <li><a href="#about">About</a></li>
-            <li><a href="#skills">Skills</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#contact">Contact</a></li>
-            <li><a href="/resume.pdf" target="_blank">Résumé</a></li>
-            <li><a href="#certifications">Certs</a></li>
-          </ul>
-        </nav>
-      </div>
-    </div>
-  </header>
-
-  <section id="about" class="about-section">
-    <h2>About Me</h2>
-    <p>
-      I'm Jason VanDeventer, a DevOps engineer focused on automating infrastructure, securing
-      deployments, and building resilient systems. My experience spans AWS, Terraform, CI/CD,
-      containers, and cloud architecture. I'm passionate about elegant automation and clear,
-      scalable infrastructure — and I'm currently seeking a full-time remote DevOps opportunity.
-    </p>
-  </section>
-
-  <section id="skills" class="skills">
-    <div class="container">
-      <h2 class="section-title animate-on-scroll">Technical Skills</h2>
-      <div class="skills-grid">
-        <div class="skill-card animate-on-scroll">
-          <div class="skill-icon">🐳</div>
-          <h3>Containers</h3>
-          <p>Docker, Nginx</p>
-        </div>
-        <div class="skill-card animate-on-scroll">
-          <div class="skill-icon">☁️</div>
-          <h3>Cloud & IaC</h3>
-          <p>AWS (EC2, ALB, S3, Route 53), Terraform</p>
-        </div>
-        <div class="skill-card animate-on-scroll">
-          <div class="skill-icon">🔄</div>
-          <h3>CI/CD</h3>
-          <p>GitHub Actions, Linting, Testing</p>
-        </div>
-        <div class="skill-card animate-on-scroll">
-          <div class="skill-icon">🔐</div>
-          <h3>Security</h3>
-          <p>IAM, Security Groups, HTTPS, DevSecOps</p>
-        </div>
-        <div class="skill-card animate-on-scroll">
-          <div class="skill-icon">💻</div>
-          <h3>Dev Tools</h3>
-          <p>Git, GitHub, Shell Scripting</p>
+  <body>
+    <header>
+      <div class="container">
+        <div class="header-content">
+          <div class="logo">Jason VanDeventer</div>
+          <nav>
+            <ul>
+              <li><a href="#about">About</a></li>
+              <li><a href="#skills">Skills</a></li>
+              <li><a href="#projects">Projects</a></li>
+              <li><a href="#contact">Contact</a></li>
+              <li><a href="/resume.pdf" target="_blank">Résumé</a></li>
+              <li><a href="#certifications">Certs</a></li>
+            </ul>
+          </nav>
         </div>
       </div>
-    </div>
-  </section>
+    </header>
 
-  <section id="certifications" class="cert-section">
-    <h2>Certifications</h2>
-    <div class="cert-badges">
-      <a href="https://www.credly.com/badges/c53eb6c3-615b-44e1-9d70-16a79c89f472" target="_blank">
-        <img src="https://images.credly.com/size/220x220/images/99fedefc-b592-4292-9780-645b77b17410/image.png"
-          alt="CompTIA A+" />
-      </a>
-      <a href="https://www.credly.com/badges/345052e4-a10a-4998-ab33-c286d6e103fa" target="_blank">
-        <img src="https://images.credly.com/size/220x220/images/f0bd5da7-e812-4fef-8d31-2e61fb4c2c3b/image.png"
-          alt="CompTIA Security+" />
-      </a>
-      <a href="https://www.credly.com/badges/051d8ed5-4eb1-45ba-9f0a-a7795282c5d6" target="_blank">
-        <img src="https://images.credly.com/size/220x220/images/1377091c-1bf3-48c1-8f72-fb300fefb7f3/image.png"
-          alt="CompTIA SecurityX" />
-      </a>
-    </div>
-
-    <ul>
-      <li>AWS Certified Solutions Architect – Associate (in progress)</li>
-      <li>HashiCorp Terraform Associate (planned)</li>
-    </ul>
-  </section>
-
-  <section id="projects" class="projects">
-    <div class="container">
-      <h2 class="section-title animate-on-scroll">Featured Projects</h2>
-      <div class="projects-grid">
-        <div class="project-card animate-on-scroll">
-          <div class="project-header">
-            <h3 class="project-title">AWS DevOps Capstone</h3>
-            <a href="https://github.com/jasonvandeventer/terraform_capstone" class="github-link">
-              GitHub Repo⭐
-            </a>
-          </div>
-          <p>
-            Deployed full AWS infrastructure with Terraform, EC2, ALB, S3, Route 53, ACM, CI/CD
-            with GitHub Actions. Designed for scalability and security, follows AWS best
-            practices.
-          </p>
-          <div class="project-links">
-            <a href="https://capstone.vanfreckle.com" target="_blank">▶ Live Demo</a>
-            |
-            <a href="/projects/capstone.html" target="_blank">📄 Project Details</a>
-          </div>
-        </div>
-
-        <div class="project-card animate-on-scroll">
-          <div class="project-header">
-            <h3 class="project-title">Terraform VPC Lab</h3>
-            <a href="https://github.com/jasonvandeventer/terraform-vpc-lab" class="github-link">
-              GitHub Repo⭐
-            </a>
-          </div>
-          <p>
-            Provisioned a full VPC with public/private subnets, IGW, route tables, and security
-            groups—using modular Terraform.
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="architecture" class="projects">
-    <div class="container">
-      <h2 class="section-title animate-on-scroll">Architecture Diagram</h2>
-      <p style="text-align: center; max-width: 700px; margin: 0 auto 2rem;">
-        Visual overview of the AWS infrastructure deployed via Terraform — including EC2, ALB, S3, Route 53, and ACM.
-      </p>
-      <img src="/assets/capstone-architecture.png" alt="Capstone AWS Architecture Diagram" class="responsive-image"
-        style="max-width: 1000px; margin: 0 auto; display: block; border: 1px solid rgba(255,255,255,0.1); border-radius: 12px;" />
-    </div>
-  </section>
-
-  <footer id="contact">
-    <div class="container">
-      <h2 class="section-title">I’m actively seeking a full-time remote DevOps position. Download my résumé, connect on
-        LinkedIn, or reach out directly.</h2>
-      <div class="social-links">
-        <a href="mailto:jason@vanfreckle.com" class="social-link" title="Email">
-          <i class="fas fa-envelope"></i>
-        </a>
-        <a href="https://github.com/jasonvandeventer" class="social-link" target="_blank" title="GitHub">
-          <i class="fab fa-github"></i>
-        </a>
-        <a href="https://linkedin.com/in/jasonvandeventer" class="social-link" target="_blank" title="LinkedIn">
-          <i class="fab fa-linkedin"></i>
-        </a>
-      </div>
-      <form action="https://formspree.io/f/mnqywzdo" method="POST" class="contact-form">
-        <input type="text" name="name" placeholder="Your Name" required />
-        <input type="email" name="_replyto" placeholder="Your Email" required />
-        <textarea name="message" placeholder="Your Message" required></textarea>
-        <button type="submit">Send Message</button>
-      </form>
+    <section id="about" class="about-section">
+      <h2>About Me</h2>
       <p>
-        &copy; 2025 Jason VanDeventer. Built with passion for automation and continuous learning.
+        I'm Jason VanDeventer, a DevOps engineer focused on automating infrastructure, securing
+        deployments, and building resilient systems. My experience spans AWS, Terraform, CI/CD,
+        containers, and cloud architecture. I'm passionate about elegant automation and clear,
+        scalable infrastructure — and I'm currently seeking a full-time remote DevOps opportunity.
       </p>
-    </div>
-  </footer>
+    </section>
 
-  <script src="app.js"></script>
-</body>
+    <section id="skills" class="skills">
+      <div class="container">
+        <h2 class="section-title animate-on-scroll">Technical Skills</h2>
+        <div class="skills-grid">
+          <div class="skill-card animate-on-scroll">
+            <div class="skill-icon">🐳</div>
+            <h3>Containers</h3>
+            <p>Docker, Nginx</p>
+          </div>
+          <div class="skill-card animate-on-scroll">
+            <div class="skill-icon">☁️</div>
+            <h3>Cloud & IaC</h3>
+            <p>AWS (EC2, ALB, S3, Route 53), Terraform</p>
+          </div>
+          <div class="skill-card animate-on-scroll">
+            <div class="skill-icon">🔄</div>
+            <h3>CI/CD</h3>
+            <p>GitHub Actions, Linting, Testing</p>
+          </div>
+          <div class="skill-card animate-on-scroll">
+            <div class="skill-icon">🔐</div>
+            <h3>Security</h3>
+            <p>IAM, Security Groups, HTTPS, DevSecOps</p>
+          </div>
+          <div class="skill-card animate-on-scroll">
+            <div class="skill-icon">💻</div>
+            <h3>Dev Tools</h3>
+            <p>Git, GitHub, Shell Scripting</p>
+          </div>
+        </div>
+      </div>
+    </section>
 
+    <section id="certifications" class="cert-section">
+      <h2>Certifications</h2>
+      <div class="cert-badges">
+        <a
+          href="https://www.credly.com/badges/c53eb6c3-615b-44e1-9d70-16a79c89f472"
+          target="_blank"
+        >
+          <img
+            src="https://images.credly.com/size/220x220/images/99fedefc-b592-4292-9780-645b77b17410/image.png"
+            alt="CompTIA A+"
+          />
+        </a>
+        <a
+          href="https://www.credly.com/badges/345052e4-a10a-4998-ab33-c286d6e103fa"
+          target="_blank"
+        >
+          <img
+            src="https://images.credly.com/size/220x220/images/f0bd5da7-e812-4fef-8d31-2e61fb4c2c3b/image.png"
+            alt="CompTIA Security+"
+          />
+        </a>
+        <a
+          href="https://www.credly.com/badges/051d8ed5-4eb1-45ba-9f0a-a7795282c5d6"
+          target="_blank"
+        >
+          <img
+            src="https://images.credly.com/size/220x220/images/1377091c-1bf3-48c1-8f72-fb300fefb7f3/image.png"
+            alt="CompTIA SecurityX"
+          />
+        </a>
+      </div>
+
+      <ul>
+        <li>AWS Certified Solutions Architect – Associate (in progress)</li>
+        <li>HashiCorp Terraform Associate (planned)</li>
+      </ul>
+    </section>
+
+    <section id="projects" class="projects">
+      <div class="container">
+        <h2 class="section-title animate-on-scroll">Featured Projects</h2>
+        <div class="projects-grid">
+          <div class="project-card animate-on-scroll">
+            <div class="project-header">
+              <h3 class="project-title">AWS DevOps Capstone</h3>
+              <a href="https://github.com/jasonvandeventer/terraform_capstone" class="github-link">
+                GitHub Repo⭐
+              </a>
+            </div>
+            <p>
+              Deployed full AWS infrastructure with Terraform, EC2, ALB, S3, Route 53, ACM, CI/CD
+              with GitHub Actions. Designed for scalability and security, follows AWS best
+              practices.
+            </p>
+            <div class="project-links">
+              <a href="https://capstone.vanfreckle.com" target="_blank">▶ Live Demo</a>
+              |
+              <a href="/projects/capstone.html" target="_blank">📄 Project Details</a>
+            </div>
+          </div>
+
+          <div class="project-card animate-on-scroll">
+            <div class="project-header">
+              <h3 class="project-title">Terraform VPC Lab</h3>
+              <a href="https://github.com/jasonvandeventer/terraform-vpc-lab" class="github-link">
+                GitHub Repo⭐
+              </a>
+            </div>
+            <p>
+              Provisioned a full VPC with public/private subnets, IGW, route tables, and security
+              groups—using modular Terraform.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="architecture" class="projects">
+      <div class="container">
+        <h2 class="section-title animate-on-scroll">Architecture Diagram</h2>
+        <p style="text-align: center; max-width: 700px; margin: 0 auto 2rem">
+          Visual overview of the AWS infrastructure deployed via Terraform — including EC2, ALB, S3,
+          Route 53, and ACM.
+        </p>
+        <img
+          src="/assets/capstone-architecture.png"
+          alt="Capstone AWS Architecture Diagram"
+          class="responsive-image"
+          style="
+            max-width: 1000px;
+            margin: 0 auto;
+            display: block;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+          "
+        />
+      </div>
+    </section>
+
+    <footer id="contact">
+      <div class="container">
+        <h2 class="section-title">
+          I’m actively seeking a full-time remote DevOps position. Download my résumé, connect on
+          LinkedIn, or reach out directly.
+        </h2>
+        <div class="social-links">
+          <a href="mailto:jason@vanfreckle.com" class="social-link" title="Email">
+            <i class="fas fa-envelope"></i>
+          </a>
+          <a
+            href="https://github.com/jasonvandeventer"
+            class="social-link"
+            target="_blank"
+            title="GitHub"
+          >
+            <i class="fab fa-github"></i>
+          </a>
+          <a
+            href="https://linkedin.com/in/jasonvandeventer"
+            class="social-link"
+            target="_blank"
+            title="LinkedIn"
+          >
+            <i class="fab fa-linkedin"></i>
+          </a>
+        </div>
+        <form action="https://formspree.io/f/mnqywzdo" method="POST" class="contact-form">
+          <input type="text" name="name" placeholder="Your Name" required />
+          <input type="email" name="_replyto" placeholder="Your Email" required />
+          <textarea name="message" placeholder="Your Message" required></textarea>
+          <button type="submit">Send Message</button>
+        </form>
+        <p>
+          &copy; 2025 Jason VanDeventer. Built with passion for automation and continuous learning.
+        </p>
+      </div>
+    </footer>
+
+    <script src="app.js"></script>
+  </body>
 </html>
