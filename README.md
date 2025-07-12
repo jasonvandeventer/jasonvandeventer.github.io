@@ -1,6 +1,7 @@
 # vanfreckle.com
 
 [![Live Site](https://img.shields.io/website?url=https%3A%2F%2Fvanfreckle.com)](https://vanfreckle.com)
+[![Lint Workflow](https://github.com/jasonvandeventer/jasonvandeventer.github.io/actions/workflows/lint.yml/badge.svg)](https://github.com/jasonvandeventer/jasonvandeventer.github.io/actions/workflows/lint.yml)
 
 **DevOps Portfolio by Jason VanDeventer** — Hands-on AWS infrastructure, CI/CD pipelines, container orchestration, and security-focused cloud automation.
 
