@@ -2,28 +2,29 @@
 
 [![Live Site](https://img.shields.io/website?url=https%3A%2F%2Fvanfreckle.com)](https://vanfreckle.com)
 
-**DevOps Portfolio by Jason VanDeventer** — Showcasing hands-on projects, technical skills, and career progression as a DevOps Engineer focused on automation, CI/CD, and cloud infrastructure.
+**DevOps Portfolio by Jason VanDeventer** — Hands-on AWS infrastructure, CI/CD pipelines, container orchestration, and security-focused cloud automation.
 
 ---
 
 ## 🚀 Overview
 
-This site highlights Jason VanDeventer’s expertise in:
+This portfolio site showcases my practical DevOps skills through real-world projects and infrastructure, including:
 
 - Infrastructure as Code (Terraform)
-- CI/CD Pipelines (GitHub Actions)
-- Docker and Kubernetes
-- AWS Cloud Architecture
-- DevSecOps practices
+- Scalable cloud architectures on AWS
+- CI/CD automation with GitHub Actions
+- Dockerized deployments
+- DevSecOps best practices (IAM, KMS, HTTPS)
 
-Hosted on **GitHub Pages** with a custom domain via a `CNAME` record.
+Built with **HTML, CSS, and Vanilla JavaScript**, this site is hosted on **GitHub Pages** with a custom domain.
 
 ---
 
 ## 🧰 Tech Stack
 
-- **HTML5**, **CSS3**, **Vanilla JavaScript**
-- **GitHub Actions** for CI
+- **HTML5**, **CSS3**, **JavaScript (Vanilla)**
+- **Terraform**, **Docker**, **AWS**
+- **GitHub Actions** for CI/CD & Linting
 - **GitHub Pages** for hosting
 - **Custom Domain**: [vanfreckle.com](https://vanfreckle.com)
 
@@ -31,10 +32,19 @@ Hosted on **GitHub Pages** with a custom domain via a `CNAME` record.
 
 ## 🌐 Live Projects
 
-| Project | Description | Live Link | Repo |
-|--------|-------------|-----------|------|
-| **AWS DevOps Capstone** | Scalable AWS infrastructure using Terraform, deployed with GitHub Actions | [Live Site](https://aws.vanfreckle.com) | [Repo](https://github.com/jasonvandeventer/terraform_capstone) |
-| **Terraform VPC Lab** | Custom VPC with public/private subnets + secure routing | – | [Repo](https://github.com/jasonvandeventer/terraform-vpc-lab) |
+| Project                | Description                                                        | Live Link                                      | Repo                                                                 |
+|------------------------|--------------------------------------------------------------------|------------------------------------------------|----------------------------------------------------------------------|
+| **AWS DevOps Capstone**| Scalable AWS infrastructure with ALB, EC2, S3, Route 53, ACM, GitHub Actions, and HTTPS | [Live Site](https://capstone.vanfreckle.com)  | [Repo](https://github.com/jasonvandeventer/terraform_capstone)      |
+| **Terraform VPC Lab**  | Custom AWS VPC with public/private subnets, NAT Gateway, and modular design | –                                              | [Repo](https://github.com/jasonvandeventer/terraform-vpc-lab)       |
+
+---
+
+## 🔧 DevOps Practices
+
+- GitHub Actions pipeline for HTML/CSS/JS/Markdown linting
+- Typing animations and scroll-triggered interactions
+- Semantic HTML, responsive design, and performance optimizations
+- CSP headers for security hardening
 
 ---
 
@@ -42,11 +52,17 @@ Hosted on **GitHub Pages** with a custom domain via a `CNAME` record.
 
 ```text
 /
-├── index.html       # Main landing page
-├── styles.css       # Custom styling
-├── app.js           # JavaScript interactions
-├── CNAME            # Custom domain for GitHub Pages
-├── README.md        # This file
+├── index.html                 # Main landing page
+├── styles.css                 # Custom styling and layout
+├── app.js                     # JS animations and UX effects
+├── projects/
+│   └── capstone.html          # Detailed breakdown of Capstone project
+├── .github/
+│   └── workflows/lint.yml     # GitHub Actions workflow
+├── .prettierrc                # Formatting rules
+├── .eslintrc.json             # JavaScript linting config
+├── CNAME                      # Custom domain for GitHub Pages
+├── README.md                  # This file\
 ```
 
 ---

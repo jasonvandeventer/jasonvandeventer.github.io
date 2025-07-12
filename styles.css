@@ -248,7 +248,6 @@ nav a:hover::after {
 
 .project-detail {
     padding-top: 6rem;
-    /* ← increased from 3rem to 6rem */
     background-color: #1a1a2e;
     border-radius: 16px;
     padding: 2rem;
@@ -559,6 +558,7 @@ footer {
     transform: translateY(0);
 }
 
+/* Header override for sticky */
 header {
     position: sticky;
     top: 0;

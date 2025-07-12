@@ -29,7 +29,8 @@
     <section class="project-detail">
         <div class="container">
             <h1 class="section-title">AWS DevOps Capstone Project</h1>
-            <p class="subtitle">A fully automated, production-ready AWS infrastructure built with
+            <p class="subtitle">
+                A fully automated, production-ready AWS infrastructure built with
                 <strong>Terraform</strong>, <strong>GitHub Actions</strong>, and security best practices.
             </p>
 
@@ -50,55 +51,39 @@
             <div class="mermaid">
                 graph TD
                 igw[Internet Gateway]
-
                 subnet1[Public Subnet AZ1]
                 subnet2[Public Subnet AZ2]
-
                 alb[Application Load Balancer]
-
                 ec2a[EC2 Instance AZ1]
                 ec2b[EC2 Instance AZ2]
-
                 rds[RDS - PostgreSQL]
                 dynamodb[DynamoDB Table]
-
                 app1[Static App]
                 app2[Static App]
-
                 github[GitHub Actions CI/CD]
                 s3[S3 Backend Bucket]
                 ddb[DynamoDB Lock Table]
                 acm[ACM Certificate]
                 iam[IAM Role]
-
                 igw --> subnet1
                 igw --> subnet2
-
                 subnet1 --> alb
                 subnet2 --> alb
-
                 alb --> ec2a
                 alb --> ec2b
-
                 ec2a --> app1
                 ec2b --> app2
-
                 ec2a --> rds
                 ec2b --> dynamodb
-
                 github --> alb
                 github --> rds
                 github --> ec2a
                 github --> ec2b
-
                 s3 --> github
                 ddb --> github
-
                 acm --> alb
-
                 iam --> ec2a
                 iam --> ec2b
-
                 ec2a --> s3
                 ec2b --> s3
             </div>
@@ -143,7 +128,6 @@
     </footer>
 
     <script src="/app.js"></script>
-
     <script type="module">
         import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
         mermaid.initialize({ startOnLoad: true });
