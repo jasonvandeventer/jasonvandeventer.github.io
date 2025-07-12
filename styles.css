@@ -202,17 +202,16 @@ nav a:hover::after {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  gap: 2rem;
+  gap: 1.5rem;
   margin-bottom: 2rem;
 }
 
 .cert-badges img {
   width: 120px;
   height: auto;
-  object-fit: contain;
-  transition: transform 0.3s ease;
   border-radius: 12px;
-  filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.2));
+  transition: transform 0.3s ease;
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.2));
 }
 
 .cert-badges img:hover {
