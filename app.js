@@ -5,7 +5,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   anchor.addEventListener('click', function (e) {
     e.preventDefault();
     document.querySelector(this.getAttribute('href'))
-            .scrollIntoView({ behavior: 'smooth', block: 'start' });
+      .scrollIntoView({ behavior: 'smooth', block: 'start' });
   });
 });
 
@@ -71,8 +71,8 @@ function createParticle() {
   particle.style.cssText = `
     position:absolute; width:4px; height:4px;
     background:rgba(59,130,246,0.6); border-radius:50%;
-    left:${Math.random()*100}%; top:100%;
-    animation:particleRise ${Math.random()*3+2}s linear forwards;
+    left:${Math.random() * 100}%; top:100%;
+    animation:particleRise ${Math.random() * 3 + 2}s linear forwards;
   `;
   document.querySelector('.hero').appendChild(particle);
   setTimeout(() => particle.remove(), 5000);
