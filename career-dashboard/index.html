@@ -1,0 +1,329 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex,nofollow" />
+    <title>Career Dashboard</title>
+    <style>
+      body {
+        margin: 0;
+        font-family: 'Segoe UI', sans-serif;
+        background: linear-gradient(135deg, #667eea, #764ba2);
+        color: #333;
+      }
+
+      .login-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 100vh;
+        padding: 20px;
+      }
+
+      .login-box {
+        background: rgba(255, 255, 255, 0.95);
+        padding: 40px;
+        border-radius: 20px;
+        box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+        text-align: center;
+      }
+
+      .login-box h2 {
+        margin-bottom: 20px;
+      }
+
+      .login-input {
+        width: 100%;
+        padding: 15px;
+        border: 2px solid #e1e5e9;
+        border-radius: 25px;
+        margin-bottom: 15px;
+      }
+
+      .login-btn {
+        width: 100%;
+        padding: 15px;
+        border: none;
+        border-radius: 25px;
+        background: linear-gradient(135deg, #667eea, #764ba2);
+        color: #fff;
+        font-weight: bold;
+        cursor: pointer;
+      }
+
+      .error-message {
+        color: #d32f2f;
+        margin-top: 10px;
+      }
+
+      .security-notice {
+        margin-top: 15px;
+        font-size: 0.9em;
+        color: #2e7d32;
+      }
+
+      .app-container {
+        display: none;
+        padding: 20px;
+      }
+
+      .logout-btn {
+        float: right;
+        margin-bottom: 10px;
+        background: #fc466b;
+        color: white;
+        padding: 8px 15px;
+        border: none;
+        border-radius: 15px;
+        cursor: pointer;
+      }
+
+      #sessionTimer {
+        float: left;
+        color: white;
+        background: rgba(0, 0, 0, 0.3);
+        padding: 5px 10px;
+        border-radius: 10px;
+        margin-bottom: 10px;
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+      }
+
+      th,
+      td {
+        padding: 10px;
+        border-bottom: 1px solid #ccc;
+      }
+
+      th {
+        background: #667eea;
+        color: white;
+        text-align: left;
+      }
+
+      .btn {
+        padding: 8px 15px;
+        border: none;
+        border-radius: 15px;
+        cursor: pointer;
+      }
+
+      .btn-success {
+        background: #4caf50;
+        color: white;
+      }
+
+      .btn-danger {
+        background: #f44336;
+        color: white;
+      }
+
+      .btn-secondary {
+        background: #ddd;
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- Login Screen -->
+    <div id="loginScreen" class="login-container">
+      <div class="login-box">
+        <h2>🔐 Secure Access</h2>
+        <form id="loginForm">
+          <input
+            type="password"
+            id="passwordInput"
+            class="login-input"
+            placeholder="Enter your password"
+            required
+          />
+          <button type="submit" class="login-btn">Access Dashboard</button>
+        </form>
+        <div id="loginError" class="error-message" style="display: none"></div>
+        <div class="security-notice">
+          🛡️ Your data is encrypted locally and never leaves your browser.
+        </div>
+      </div>
+    </div>
+
+    <!-- Main App -->
+    <div id="appContainer" class="app-container">
+      <div>
+        <span id="sessionTimer"></span>
+        <button class="logout-btn" onclick="logout()">🚪 Logout</button>
+        <h1>🎯 Career Dashboard</h1>
+        <p>Track your job applications securely</p>
+        <button class="btn btn-success" onclick="addDummy()">➕ Add Dummy Application</button>
+      </div>
+      <table id="appTable">
+        <thead>
+          <tr>
+            <th>Company</th>
+            <th>Position</th>
+            <th>Status</th>
+            <th>Last Update</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody id="appBody"></tbody>
+      </table>
+    </div>
+
+    <script>
+      const STORAGE_KEY = 'careerDashboardData';
+      const HASH_KEY = 'careerDashboardPwdHash';
+      const SESSION_KEY = 'careerDashboardSession';
+      const SESSION_TIMEOUT = 2 * 60 * 60 * 1000;
+      let apps = [],
+        sessionTimer = null,
+        sessionStart = null,
+        masterPwd = null;
+
+      async function hashPassword(p) {
+        const enc = new TextEncoder();
+        const buf = await crypto.subtle.digest('SHA-256', enc.encode(p));
+        return Array.from(new Uint8Array(buf))
+          .map((b) => b.toString(16).padStart(2, '0'))
+          .join('');
+      }
+      async function deriveKey(p) {
+        const enc = new TextEncoder();
+        const mat = await crypto.subtle.importKey('raw', enc.encode(p), { name: 'PBKDF2' }, false, [
+          'deriveKey',
+        ]);
+        return crypto.subtle.deriveKey(
+          { name: 'PBKDF2', salt: enc.encode('career-salt'), iterations: 50000, hash: 'SHA-256' },
+          mat,
+          { name: 'AES-GCM', length: 256 },
+          false,
+          ['encrypt', 'decrypt']
+        );
+      }
+      async function encryptData(data, p) {
+        const key = await deriveKey(p);
+        const iv = crypto.getRandomValues(new Uint8Array(12));
+        const encoded = new TextEncoder().encode(data);
+        const cipher = await crypto.subtle.encrypt({ name: 'AES-GCM', iv }, key, encoded);
+        return JSON.stringify({
+          iv: Array.from(iv),
+          data: btoa(String.fromCharCode(...new Uint8Array(cipher))),
+        });
+      }
+      async function decryptData(encStr, p) {
+        const e = JSON.parse(encStr);
+        const key = await deriveKey(p);
+        const iv = new Uint8Array(e.iv);
+        const cipher = Uint8Array.from(atob(e.data), (c) => c.charCodeAt(0));
+        const buf = await crypto.subtle.decrypt({ name: 'AES-GCM', iv }, key, cipher);
+        return new TextDecoder().decode(buf);
+      }
+
+      function startSession() {
+        sessionStart = Date.now();
+        localStorage.setItem(SESSION_KEY, sessionStart);
+        if (sessionTimer) clearInterval(sessionTimer);
+        sessionTimer = setInterval(() => {
+          const elapsed = Date.now() - sessionStart;
+          const remain = SESSION_TIMEOUT - elapsed;
+          if (remain <= 0) {
+            logout();
+            return;
+          }
+          const h = Math.floor(remain / 3600000),
+            m = Math.floor((remain % 3600000) / 60000),
+            s = Math.floor((remain % 60000) / 1000);
+          document.getElementById('sessionTimer').textContent =
+            `Session: ${h}:${m.toString().padStart(2, '0')}:${s.toString().padStart(2, '0')}`;
+        }, 1000);
+      }
+      function logout() {
+        masterPwd = null;
+        localStorage.removeItem(SESSION_KEY);
+        if (sessionTimer) clearInterval(sessionTimer);
+        document.getElementById('appContainer').style.display = 'none';
+        document.getElementById('loginScreen').style.display = 'flex';
+      }
+      async function saveData() {
+        if (!masterPwd) return;
+        const json = JSON.stringify(apps);
+        const enc = await encryptData(json, masterPwd);
+        localStorage.setItem(STORAGE_KEY, enc);
+      }
+      async function loadData(pwd) {
+        const stored = localStorage.getItem(STORAGE_KEY);
+        if (!stored) return [];
+        try {
+          return JSON.parse(await decryptData(stored, pwd));
+        } catch {
+          return [];
+        }
+      }
+      function renderApps() {
+        const body = document.getElementById('appBody');
+        body.innerHTML = apps
+          .map(
+            (a) =>
+              `<tr><td>${a.company}</td><td>${a.position}</td><td>${a.status}</td><td>${a.date}</td><td><button class='btn btn-danger' onclick='deleteApp(${a.id})'>🗑️</button></td></tr>`
+          )
+          .join('');
+      }
+      async function deleteApp(id) {
+        apps = apps.filter((x) => x.id !== id);
+        await saveData();
+        renderApps();
+      }
+      async function addDummy() {
+        apps.push({
+          id: Date.now(),
+          company: 'Acme Corp',
+          position: 'DevOps Engineer',
+          status: 'Applied',
+          date: new Date().toLocaleDateString(),
+        });
+        await saveData();
+        renderApps();
+      }
+
+      document.getElementById('loginForm').addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const input = document.getElementById('passwordInput').value.trim();
+        const storedHash = localStorage.getItem(HASH_KEY);
+        if (!storedHash) {
+          const newHash = await hashPassword(input);
+          localStorage.setItem(HASH_KEY, newHash);
+          alert('✅ Password set! Keep it safe.');
+          await unlock(input);
+        } else {
+          const h = await hashPassword(input);
+          if (h === storedHash) {
+            await unlock(input);
+          } else {
+            const err = document.getElementById('loginError');
+            err.textContent = '❌ Incorrect password';
+            err.style.display = 'block';
+          }
+        }
+      });
+      async function unlock(pwd) {
+        masterPwd = pwd;
+        document.getElementById('loginScreen').style.display = 'none';
+        document.getElementById('appContainer').style.display = 'block';
+        startSession();
+        apps = (await loadData(pwd)) || [];
+        renderApps();
+        document.addEventListener('click', () => (sessionStart = Date.now()));
+        document.addEventListener('keypress', () => (sessionStart = Date.now()));
+      }
+      document.addEventListener('DOMContentLoaded', () => {
+        if (localStorage.getItem(SESSION_KEY)) {
+          document.getElementById('loginScreen').style.display = 'flex';
+        }
+      });
+    </script>
+  </body>
+</html>
