@@ -101,7 +101,7 @@ nav a:hover::after {
 /* =========================
    MOBILE NAVIGATION
 ========================= */
-@@media (max-width: 768px) {
+@media (max-width: 768px) {
   /* Show hamburger on mobile */
   .hamburger {
     display: block !important;
