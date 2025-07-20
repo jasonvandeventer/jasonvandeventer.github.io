@@ -15,6 +15,38 @@ body {
   overflow-x: hidden;
 }
 
+/* Hide hamburger on desktop by default */
+.hamburger {
+  display: none;
+}
+
+/* Show hamburger only on screens <= 768px */
+@media (max-width: 768px) {
+  .hamburger {
+    display: block;
+  }
+}
+
+/* Desktop default: show nav normally */
+#main-nav {
+  display: block;
+}
+
+/* Mobile default: hide nav unless toggled */
+@media (max-width: 768px) {
+  #main-nav {
+    display: none;
+    flex-direction: column;
+    background: #fff;
+    padding: 1rem;
+  }
+
+  /* When JS toggles "open", show it */
+  #main-nav.open {
+    display: flex;
+  }
+}
+
 .container {
   max-width: 1200px;
   margin: 0 auto;
