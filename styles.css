@@ -1,6 +1,4 @@
-/* ================================
-   GLOBAL RESET & BASE
-================================ */
+/* Reset & Base */
 * {
   margin: 0;
   padding: 0;
@@ -24,20 +22,16 @@ body {
   padding: 0 20px;
 }
 
-/* ================================
-   HEADER & NAVIGATION
-================================ */
-
-/* Base header styles */
+/* Header */
 header {
-  position: sticky;
-  top: 0;
-  width: 100%;
-  padding: 1rem 0;
-  background: rgba(15, 23, 42, 0.85);
+  padding: 2rem 0;
+  background: rgba(15, 23, 42, 0.8);
   backdrop-filter: blur(10px);
+  position: fixed;
+  width: 100%;
+  top: 0;
   z-index: 1000;
-  transition: background 0.3s ease;
+  transition: all 0.3s ease;
 }
 
 .header-content {
@@ -55,11 +49,7 @@ header {
   background-clip: text;
 }
 
-/* Desktop nav: visible by default */
-#main-nav {
-  display: block;
-}
-
+/* Default desktop nav */
 nav ul {
   display: flex;
   list-style: none;
@@ -96,46 +86,58 @@ nav a:hover::after {
 /* Hamburger hidden by default (desktop) */
 .hamburger {
   display: none;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: #e2e8f0;
+  cursor: pointer;
 }
 
-/* Force hide hamburger on desktop >768px */
-@media (min-width: 769px) {
-  .hamburger {
-    display: none !important;
-  }
+/* Desktop default nav visible */
+#main-nav {
+  display: block;
 }
 
-/* ================================
-   MOBILE NAVIGATION TOGGLE
-================================ */
+/* =========================
+   MOBILE NAVIGATION
+========================= */
 @media (max-width: 768px) {
-  /* Show hamburger icon only on mobile */
+  /* Show hamburger on mobile */
   .hamburger {
     display: block !important;
   }
 
-  /* Hide nav by default on mobile */
+  /* Hide nav initially */
   #main-nav {
     display: none;
     flex-direction: column;
-    background: rgba(15, 23, 42, 0.95);
-    padding: 1rem;
+    align-items: center;
+    gap: 1rem;
+    background: rgba(15, 23, 42, 0.98);
+    padding: 1rem 0;
     position: absolute;
-    top: 60px; /* below header */
-    right: 20px;
-    width: 200px;
-    border-radius: 8px;
+    top: 60px; /* right below header */
+    left: 0;
+    width: 100%; /* full width dropdown */
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   }
 
-  /* When JS toggles .open → show nav links */
+  /* Force show when toggled */
   #main-nav.open {
-    display: flex;
+    display: flex !important;
+  }
+
+  /* Stack nav links vertically */
+  #main-nav ul {
+    flex-direction: column;
+    width: 100%;
+    text-align: center;
+    gap: 1rem;
   }
 }
 
-/* ================================
-   HERO SECTION
-================================ */
+/* Hero Section */
 .hero {
   min-height: 100vh;
   display: flex;
@@ -188,9 +190,7 @@ nav a:hover::after {
   box-shadow: 0 8px 25px rgba(59, 130, 246, 0.4);
 }
 
-/* ================================
-   ABOUT SECTION
-================================ */
+/* About Section */
 .about-section {
   background: rgba(30, 41, 59, 0.5);
   border-radius: 16px;
@@ -216,9 +216,7 @@ nav a:hover::after {
   margin: 0 auto;
 }
 
-/* ================================
-   CERTIFICATIONS SECTION
-================================ */
+/* Certifications Section */
 .cert-section {
   background: rgba(30, 41, 59, 0.5);
   border-radius: 16px;
@@ -276,49 +274,7 @@ nav a:hover::after {
   transform: scale(1.05);
 }
 
-/* ================================
-   FLOATING ELEMENTS
-================================ */
-.floating-elements {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 1;
-}
-
-.floating-element {
-  position: absolute;
-  width: 60px;
-  height: 60px;
-  background: rgba(59, 130, 246, 0.1);
-  border: 2px solid rgba(59, 130, 246, 0.3);
-  border-radius: 50%;
-  animation: float 6s ease-in-out infinite;
-}
-
-.floating-element:nth-child(1) {
-  top: 20%;
-  left: 10%;
-  animation-delay: 0s;
-}
-
-.floating-element:nth-child(2) {
-  top: 60%;
-  left: 80%;
-  animation-delay: 2s;
-}
-
-.floating-element:nth-child(3) {
-  top: 30%;
-  left: 70%;
-  animation-delay: 4s;
-}
-
-/* ================================
-   SKILLS SECTION
-================================ */
+/* Skills Section */
 .skills {
   padding: 5rem 0;
   background: rgba(30, 41, 59, 0.5);
@@ -368,33 +324,7 @@ nav a:hover::after {
   margin-bottom: 1rem;
 }
 
-.skill-card h3 {
-  font-size: 1.5rem;
-  margin-bottom: 1rem;
-  color: #f1f5f9;
-}
-
-/* Progress bar */
-.progress-bar {
-  width: 100%;
-  height: 8px;
-  background: rgba(148, 163, 184, 0.2);
-  border-radius: 4px;
-  overflow: hidden;
-  margin-top: 1rem;
-}
-
-.progress-fill {
-  height: 100%;
-  background: linear-gradient(45deg, #3b82f6, #06b6d4);
-  border-radius: 4px;
-  transition: width 2s ease;
-  animation: progressFill 3s ease-out;
-}
-
-/* ================================
-   PROJECTS SECTION
-================================ */
+/* Projects */
 .projects {
   padding: 5rem 0;
 }
@@ -445,25 +375,7 @@ nav a:hover::after {
   color: #3b82f6;
 }
 
-.project-tech {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-  margin-top: 1rem;
-}
-
-.tech-tag {
-  background: rgba(59, 130, 246, 0.2);
-  color: #3b82f6;
-  padding: 0.25rem 0.75rem;
-  border-radius: 20px;
-  font-size: 0.875rem;
-  font-weight: 500;
-}
-
-/* ================================
-   FOOTER
-================================ */
+/* Footer */
 footer {
   padding: 3rem 0;
   text-align: center;
@@ -528,9 +440,7 @@ footer {
   box-shadow: 0 6px 16px rgba(59, 130, 246, 0.3);
 }
 
-/* ================================
-   ANIMATIONS
-================================ */
+/* Animations */
 @keyframes fadeInUp {
   from {
     opacity: 0;
@@ -539,16 +449,6 @@ footer {
   to {
     opacity: 1;
     transform: translateY(0);
-  }
-}
-
-@keyframes float {
-  0%,
-  100% {
-    transform: translateY(0px);
-  }
-  50% {
-    transform: translateY(-20px);
   }
 }
 
@@ -561,38 +461,6 @@ footer {
   }
 }
 
-@keyframes progressFill {
-  from {
-    width: 0%;
-  }
-}
-
-/* ================================
-   RESPONSIVE TWEAKS
-================================ */
-@media (max-width: 768px) {
-  .hero h1 {
-    font-size: 2.5rem;
-  }
-
-  .hero p {
-    font-size: 1rem;
-  }
-
-  .timeline-content {
-    width: 90%;
-  }
-
-  .timeline-item:nth-child(odd) .timeline-content,
-  .timeline-item:nth-child(even) .timeline-content {
-    margin-left: 10%;
-    margin-right: 0;
-  }
-}
-
-/* ================================
-   SCROLL ANIMATIONS
-================================ */
 .animate-on-scroll {
   opacity: 0;
   transform: translateY(30px);
@@ -602,4 +470,13 @@ footer {
 .animate-on-scroll.visible {
   opacity: 1;
   transform: translateY(0);
+}
+
+/* Sticky header override */
+header {
+  position: sticky;
+  top: 0;
+  background-color: #000a1f;
+  z-index: 1000;
+  padding: 1rem 0;
 }
