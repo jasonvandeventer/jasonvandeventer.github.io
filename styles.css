@@ -110,45 +110,55 @@ nav a:hover::after {
     font-size: 2rem;
     color: #e2e8f0;
     cursor: pointer;
+    z-index: 2001;
     position: relative;
-    z-index: 2001; /* ensure it's always clickable */
   }
 
-  /* Hide nav initially */
+  /* Hide nav by default */
   #main-nav {
-    display: none; /* start hidden */
+    display: none;
     flex-direction: column;
-    align-items: center;
-    gap: 1rem;
-    background: rgba(15, 23, 42, 0.98);
-    padding: 1rem 0;
     position: absolute;
-    top: 60px; /* directly under header */
-    left: 0;
-    width: 100%;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    z-index: 2000; /* stays above all content */
+    top: 50px; /* dropdown right under hamburger */
+    right: 20px; /* align with hamburger on the right */
+    background: rgba(15, 23, 42, 0.98);
+    padding: 0.5rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    z-index: 2000;
+    width: 180px; /* fixed width dropdown */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
   }
 
-  /* Force show when toggled */
+  /* Show when toggled */
   #main-nav.open {
     display: flex !important;
   }
 
-  /* Stack nav links vertically */
+  /* Stack links vertically inside dropdown */
   #main-nav ul {
     flex-direction: column;
+    gap: 0.5rem;
     width: 100%;
-    text-align: center;
-    gap: 1rem;
+    list-style: none;
   }
 
-  /* Make each link full clickable width */
+  #main-nav ul li {
+    width: 100%;
+  }
+
   #main-nav ul li a {
     display: block;
     width: 100%;
-    padding: 0.75rem 0;
+    text-align: left;
+    padding: 0.5rem 0.75rem;
+    border-radius: 4px;
+    color: #e2e8f0;
+  }
+
+  #main-nav ul li a:hover {
+    background: rgba(59, 130, 246, 0.2);
+    color: #3b82f6;
   }
 }
 
