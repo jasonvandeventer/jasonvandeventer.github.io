@@ -88,10 +88,17 @@
         margin-bottom: 10px;
       }
 
+      h1 {
+        margin: 0 0 10px;
+      }
+
       table {
         width: 100%;
         border-collapse: collapse;
         margin-top: 20px;
+        background: white;
+        border-radius: 10px;
+        overflow: hidden;
       }
 
       th,
@@ -104,6 +111,16 @@
         background: #667eea;
         color: white;
         text-align: left;
+      }
+
+      tr:hover {
+        background: #f7f7ff;
+      }
+
+      a.app-link {
+        color: #667eea;
+        cursor: pointer;
+        text-decoration: underline;
       }
 
       .btn {
@@ -125,6 +142,58 @@
 
       .btn-secondary {
         background: #ddd;
+      }
+
+      /* Modal styling */
+      .modal {
+        display: none;
+        position: fixed;
+        z-index: 1000;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        align-items: center;
+        justify-content: center;
+      }
+
+      .modal-content {
+        background: white;
+        padding: 20px;
+        border-radius: 15px;
+        max-width: 500px;
+        width: 90%;
+      }
+
+      .modal h2 {
+        margin-top: 0;
+      }
+
+      .form-group {
+        margin-bottom: 15px;
+      }
+
+      .form-group label {
+        display: block;
+        font-weight: bold;
+        margin-bottom: 5px;
+      }
+
+      .form-group input,
+      .form-group select,
+      .form-group textarea {
+        width: 100%;
+        padding: 8px;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+      }
+
+      .modal-actions {
+        display: flex;
+        gap: 10px;
+        justify-content: flex-end;
+        margin-top: 15px;
       }
     </style>
   </head>
@@ -158,7 +227,7 @@
         <button class="logout-btn" onclick="logout()">🚪 Logout</button>
         <h1>🎯 Career Dashboard</h1>
         <p>Track your job applications securely</p>
-        <button class="btn btn-success" onclick="addDummy()">➕ Add Dummy Application</button>
+        <button class="btn btn-success" onclick="openAddModal()">➕ Add Application</button>
       </div>
       <table id="appTable">
         <thead>
@@ -174,6 +243,39 @@
       </table>
     </div>
 
+    <!-- Add/Edit Modal -->
+    <div id="appModal" class="modal">
+      <div class="modal-content">
+        <h2 id="modalTitle">Add Application</h2>
+        <div class="form-group">
+          <label for="company">Company</label>
+          <input type="text" id="company" required />
+        </div>
+        <div class="form-group">
+          <label for="position">Position</label>
+          <input type="text" id="position" required />
+        </div>
+        <div class="form-group">
+          <label for="status">Status</label>
+          <select id="status">
+            <option value="Applied">Applied</option>
+            <option value="Interview">Interview</option>
+            <option value="Offer">Offer</option>
+            <option value="Rejected">Rejected</option>
+            <option value="Pending">Pending</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="notes">Notes</label>
+          <textarea id="notes"></textarea>
+        </div>
+        <div class="modal-actions">
+          <button class="btn btn-success" onclick="saveApp()">💾 Save</button>
+          <button class="btn btn-secondary" onclick="closeModal()">Cancel</button>
+        </div>
+      </div>
+    </div>
+
     <script>
       const STORAGE_KEY = 'careerDashboardData';
       const HASH_KEY = 'careerDashboardPwdHash';
@@ -182,7 +284,8 @@
       let apps = [],
         sessionTimer = null,
         sessionStart = null,
-        masterPwd = null;
+        masterPwd = null,
+        editingId = null;
 
       async function hashPassword(p) {
         const enc = new TextEncoder();
@@ -263,30 +366,90 @@
           return [];
         }
       }
+
       function renderApps() {
         const body = document.getElementById('appBody');
+        if (apps.length === 0) {
+          body.innerHTML = `<tr><td colspan="5" style="text-align:center;color:#666;">No applications yet. Click ➕ Add Application</td></tr>`;
+          return;
+        }
         body.innerHTML = apps
           .map(
-            (a) =>
-              `<tr><td>${a.company}</td><td>${a.position}</td><td>${a.status}</td><td>${a.date}</td><td><button class='btn btn-danger' onclick='deleteApp(${a.id})'>🗑️</button></td></tr>`
+            (a) => `<tr>
+    <td><a class='app-link' onclick="editApp(${a.id})">${a.company}</a></td>
+    <td>${a.position}</td>
+    <td>${a.status}</td>
+    <td>${a.date}</td>
+    <td><button class='btn btn-danger' onclick='deleteApp(${a.id})'>🗑️</button></td>
+  </tr>`
           )
           .join('');
       }
+
       async function deleteApp(id) {
+        if (!confirm('Delete this application?')) return;
         apps = apps.filter((x) => x.id !== id);
         await saveData();
         renderApps();
       }
-      async function addDummy() {
-        apps.push({
-          id: Date.now(),
-          company: 'Acme Corp',
-          position: 'DevOps Engineer',
-          status: 'Applied',
-          date: new Date().toLocaleDateString(),
-        });
+
+      function openAddModal() {
+        editingId = null;
+        document.getElementById('modalTitle').textContent = 'Add Application';
+        document.getElementById('company').value = '';
+        document.getElementById('position').value = '';
+        document.getElementById('status').value = 'Applied';
+        document.getElementById('notes').value = '';
+        document.getElementById('appModal').style.display = 'flex';
+      }
+      function closeModal() {
+        document.getElementById('appModal').style.display = 'none';
+      }
+
+      function editApp(id) {
+        const app = apps.find((x) => x.id === id);
+        if (!app) return;
+        editingId = id;
+        document.getElementById('modalTitle').textContent = 'Edit Application';
+        document.getElementById('company').value = app.company;
+        document.getElementById('position').value = app.position;
+        document.getElementById('status').value = app.status;
+        document.getElementById('notes').value = app.notes || '';
+        document.getElementById('appModal').style.display = 'flex';
+      }
+
+      async function saveApp() {
+        const company = document.getElementById('company').value.trim();
+        const position = document.getElementById('position').value.trim();
+        const status = document.getElementById('status').value;
+        const notes = document.getElementById('notes').value.trim();
+        if (!company || !position) {
+          alert('Company & Position required!');
+          return;
+        }
+        if (editingId) {
+          const idx = apps.findIndex((x) => x.id === editingId);
+          apps[idx] = {
+            ...apps[idx],
+            company,
+            position,
+            status,
+            notes,
+            date: new Date().toLocaleDateString(),
+          };
+        } else {
+          apps.push({
+            id: Date.now(),
+            company,
+            position,
+            status,
+            notes,
+            date: new Date().toLocaleDateString(),
+          });
+        }
         await saveData();
         renderApps();
+        closeModal();
       }
 
       document.getElementById('loginForm').addEventListener('submit', async (e) => {
@@ -309,6 +472,7 @@
           }
         }
       });
+
       async function unlock(pwd) {
         masterPwd = pwd;
         document.getElementById('loginScreen').style.display = 'none';
@@ -319,11 +483,15 @@
         document.addEventListener('click', () => (sessionStart = Date.now()));
         document.addEventListener('keypress', () => (sessionStart = Date.now()));
       }
+
       document.addEventListener('DOMContentLoaded', () => {
         if (localStorage.getItem(SESSION_KEY)) {
           document.getElementById('loginScreen').style.display = 'flex';
         }
       });
+      window.onclick = function (e) {
+        if (e.target === document.getElementById('appModal')) closeModal();
+      };
     </script>
   </body>
 </html>
