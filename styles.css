@@ -15,6 +15,11 @@ body {
   overflow-x: hidden;
 }
 
+/* Desktop default: show nav normally */
+#main-nav {
+  display: block;
+}
+
 /* Hide hamburger on desktop by default */
 .hamburger {
   display: none;
@@ -25,23 +30,21 @@ body {
   .hamburger {
     display: block;
   }
-}
 
-/* Desktop default: show nav normally */
-#main-nav {
-  display: block;
-}
-
-/* Mobile default: hide nav unless toggled */
-@media (max-width: 768px) {
+  /* Hide nav by default on mobile */
   #main-nav {
     display: none;
     flex-direction: column;
-    background: #fff;
+    background: rgba(15, 23, 42, 0.95);
     padding: 1rem;
+    position: absolute;
+    top: 60px; /* below header */
+    right: 20px;
+    width: 200px;
+    border-radius: 8px;
   }
 
-  /* When JS toggles "open", show it */
+  /* When JS toggles .open → show */
   #main-nav.open {
     display: flex;
   }
@@ -698,10 +701,6 @@ footer {
   .timeline-item:nth-child(even) .timeline-content {
     margin-left: 10%;
     margin-right: 0;
-  }
-
-  nav ul {
-    display: none;
   }
 }
 
