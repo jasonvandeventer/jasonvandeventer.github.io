@@ -1,3 +1,6 @@
+/* ================================
+   GLOBAL RESET & BASE
+================================ */
 * {
   margin: 0;
   padding: 0;
@@ -15,57 +18,26 @@ body {
   overflow-x: hidden;
 }
 
-/* Desktop default: show nav normally */
-#main-nav {
-  display: block;
-}
-
-/* Hide hamburger on desktop by default */
-.hamburger {
-  display: none;
-}
-
-/* Show hamburger only on screens <= 768px */
-@media (max-width: 768px) {
-  .hamburger {
-    display: block;
-  }
-
-  /* Hide nav by default on mobile */
-  #main-nav {
-    display: none;
-    flex-direction: column;
-    background: rgba(15, 23, 42, 0.95);
-    padding: 1rem;
-    position: absolute;
-    top: 60px; /* below header */
-    right: 20px;
-    width: 200px;
-    border-radius: 8px;
-  }
-
-  /* When JS toggles .open → show */
-  #main-nav.open {
-    display: flex;
-  }
-}
-
 .container {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 20px;
 }
 
-/* Header */
+/* ================================
+   HEADER & NAVIGATION
+================================ */
+
+/* Base header styles */
 header {
-  padding: 2rem 0;
-  background: rgba(15, 23, 42, 0.8);
-  backdrop-filter: blur(10px);
-  position: fixed;
-  width: 100%;
+  position: sticky;
   top: 0;
+  width: 100%;
+  padding: 1rem 0;
+  background: rgba(15, 23, 42, 0.85);
+  backdrop-filter: blur(10px);
   z-index: 1000;
-  transition: all 0.3s ease;
+  transition: background 0.3s ease;
 }
 
 .header-content {
@@ -81,6 +53,11 @@ header {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+}
+
+/* Desktop nav: visible by default */
+#main-nav {
+  display: block;
 }
 
 nav ul {
@@ -116,7 +93,49 @@ nav a:hover::after {
   width: 100%;
 }
 
-/* Hero Section */
+/* Hamburger hidden by default (desktop) */
+.hamburger {
+  display: none;
+}
+
+/* Force hide hamburger on desktop >768px */
+@media (min-width: 769px) {
+  .hamburger {
+    display: none !important;
+  }
+}
+
+/* ================================
+   MOBILE NAVIGATION TOGGLE
+================================ */
+@media (max-width: 768px) {
+  /* Show hamburger icon only on mobile */
+  .hamburger {
+    display: block !important;
+  }
+
+  /* Hide nav by default on mobile */
+  #main-nav {
+    display: none;
+    flex-direction: column;
+    background: rgba(15, 23, 42, 0.95);
+    padding: 1rem;
+    position: absolute;
+    top: 60px; /* below header */
+    right: 20px;
+    width: 200px;
+    border-radius: 8px;
+  }
+
+  /* When JS toggles .open → show nav links */
+  #main-nav.open {
+    display: flex;
+  }
+}
+
+/* ================================
+   HERO SECTION
+================================ */
 .hero {
   min-height: 100vh;
   display: flex;
@@ -169,7 +188,9 @@ nav a:hover::after {
   box-shadow: 0 8px 25px rgba(59, 130, 246, 0.4);
 }
 
-/* About Section */
+/* ================================
+   ABOUT SECTION
+================================ */
 .about-section {
   background: rgba(30, 41, 59, 0.5);
   border-radius: 16px;
@@ -195,7 +216,9 @@ nav a:hover::after {
   margin: 0 auto;
 }
 
-/* Certification Section */
+/* ================================
+   CERTIFICATIONS SECTION
+================================ */
 .cert-section {
   background: rgba(30, 41, 59, 0.5);
   border-radius: 16px;
@@ -253,7 +276,9 @@ nav a:hover::after {
   transform: scale(1.05);
 }
 
-/* Floating Elements */
+/* ================================
+   FLOATING ELEMENTS
+================================ */
 .floating-elements {
   position: absolute;
   top: 0;
@@ -291,7 +316,9 @@ nav a:hover::after {
   animation-delay: 4s;
 }
 
-/* Skills Section */
+/* ================================
+   SKILLS SECTION
+================================ */
 .skills {
   padding: 5rem 0;
   background: rgba(30, 41, 59, 0.5);
@@ -347,6 +374,7 @@ nav a:hover::after {
   color: #f1f5f9;
 }
 
+/* Progress bar */
 .progress-bar {
   width: 100%;
   height: 8px;
@@ -364,20 +392,11 @@ nav a:hover::after {
   animation: progressFill 3s ease-out;
 }
 
-/* Projects Section */
+/* ================================
+   PROJECTS SECTION
+================================ */
 .projects {
   padding: 5rem 0;
-}
-
-.project-detail {
-  padding-top: clamp(80px, 10vh, 120px);
-  background-color: #1a1a2e;
-  border-radius: 16px;
-  padding: 2rem;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
-  max-width: 960px;
-  margin: 2rem auto;
-  color: #e6e6e6;
 }
 
 .projects-grid {
@@ -442,143 +461,9 @@ nav a:hover::after {
   font-weight: 500;
 }
 
-/* === Capstone Detail Page === */
-.project-detail .container {
-  background-color: #1a1a2e;
-  border-radius: 16px;
-  padding: 2rem;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
-  max-width: 960px;
-  margin: 2rem auto;
-  color: #e6e6e6;
-}
-
-.project-detail h1 {
-  font-size: 2.5rem;
-  margin-bottom: 1rem;
-  color: #66fcf1;
-}
-
-.project-detail h2 {
-  font-size: 1.75rem;
-  margin-top: 2rem;
-  margin-bottom: 0.5rem;
-  color: #ffd700;
-}
-
-.project-detail ul {
-  margin-left: 1.5rem;
-  margin-bottom: 2rem;
-  line-height: 1.6;
-}
-
-.project-links .btn {
-  display: inline-block;
-  padding: 0.5rem 1rem;
-  background-color: #0070f3;
-  color: white;
-  text-decoration: none;
-  border-radius: 8px;
-  margin-right: 1rem;
-  transition: background-color 0.3s ease;
-}
-
-.project-links .btn:hover {
-  background-color: #0059c1;
-}
-
-.cta a.highlight-link {
-  color: #00c9a7;
-  font-weight: bold;
-  text-decoration: underline;
-}
-
-.responsive-image {
-  width: 100%;
-  max-width: 100%;
-  border-radius: 8px;
-  margin-bottom: 2rem;
-}
-
-.badges {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-  margin-bottom: 1rem;
-}
-
-.mermaid {
-  margin: 2rem 0;
-  background: #1e1e2f;
-  border-radius: 8px;
-  padding: 1rem;
-}
-
-/* Timeline Section */
-.timeline {
-  padding: 5rem 0;
-  background: rgba(30, 41, 59, 0.5);
-}
-
-.timeline-container {
-  position: relative;
-  max-width: 800px;
-  margin: 0 auto;
-}
-
-.timeline-line {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 2px;
-  height: 100%;
-  background: linear-gradient(45deg, #3b82f6, #06b6d4);
-}
-
-.timeline-item {
-  position: relative;
-  margin-bottom: 3rem;
-  animation: fadeInUp 0.6s ease-out;
-}
-
-.timeline-content {
-  background: rgba(51, 65, 85, 0.3);
-  backdrop-filter: blur(10px);
-  border-radius: 15px;
-  padding: 2rem;
-  position: relative;
-  width: 45%;
-  border: 1px solid rgba(148, 163, 184, 0.1);
-}
-
-.timeline-item:nth-child(odd) .timeline-content {
-  margin-left: 55%;
-}
-
-.timeline-item:nth-child(even) .timeline-content {
-  margin-right: 55%;
-  margin-left: 0;
-}
-
-.timeline-dot {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 20px;
-  height: 20px;
-  background: linear-gradient(45deg, #3b82f6, #06b6d4);
-  border-radius: 50%;
-  top: 2rem;
-  z-index: 2;
-}
-
-.timeline-date {
-  color: #3b82f6;
-  font-weight: 600;
-  margin-bottom: 0.5rem;
-}
-
-/* Footer */
+/* ================================
+   FOOTER
+================================ */
 footer {
   padding: 3rem 0;
   text-align: center;
@@ -643,13 +528,14 @@ footer {
   box-shadow: 0 6px 16px rgba(59, 130, 246, 0.3);
 }
 
-/* Animations */
+/* ================================
+   ANIMATIONS
+================================ */
 @keyframes fadeInUp {
   from {
     opacity: 0;
     transform: translateY(30px);
   }
-
   to {
     opacity: 1;
     transform: translateY(0);
@@ -661,7 +547,6 @@ footer {
   100% {
     transform: translateY(0px);
   }
-
   50% {
     transform: translateY(-20px);
   }
@@ -671,7 +556,6 @@ footer {
   0% {
     text-shadow: 0 0 10px rgba(59, 130, 246, 0.3);
   }
-
   100% {
     text-shadow: 0 0 20px rgba(59, 130, 246, 0.6);
   }
@@ -683,7 +567,9 @@ footer {
   }
 }
 
-/* Responsive Design */
+/* ================================
+   RESPONSIVE TWEAKS
+================================ */
 @media (max-width: 768px) {
   .hero h1 {
     font-size: 2.5rem;
@@ -704,7 +590,9 @@ footer {
   }
 }
 
-/* Scroll animations */
+/* ================================
+   SCROLL ANIMATIONS
+================================ */
 .animate-on-scroll {
   opacity: 0;
   transform: translateY(30px);
@@ -714,13 +602,4 @@ footer {
 .animate-on-scroll.visible {
   opacity: 1;
   transform: translateY(0);
-}
-
-/* Header override for sticky */
-header {
-  position: sticky;
-  top: 0;
-  background-color: #000a1f;
-  z-index: 1000;
-  padding: 1rem 0;
 }
