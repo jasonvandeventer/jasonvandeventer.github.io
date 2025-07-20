@@ -1,14 +1,21 @@
-// =========================
-// HAMBURGER MENU TOGGLE
-// =========================
 document.addEventListener('DOMContentLoaded', () => {
   const menuToggle = document.getElementById('menu-toggle');
   const mainNav = document.getElementById('main-nav');
 
   if (menuToggle && mainNav) {
     menuToggle.addEventListener('click', () => {
+      // Toggle the mobile nav visibility
       mainNav.classList.toggle('open');
+
+      // ✅ TEMP DEBUG: flash the hamburger button red to confirm JS runs
+      menuToggle.style.backgroundColor = 'red';
+      setTimeout(() => {
+        menuToggle.style.backgroundColor = ''; // revert after 300ms
+      }, 300);
     });
+  } else {
+    // Optional: log warning if elements not found
+    console.warn('⚠️ menu-toggle or main-nav not found in DOM');
   }
 });
 
@@ -28,7 +35,6 @@ document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
       });
 
       // Close mobile menu after clicking a link
-      const mainNav = document.getElementById('main-nav');
       if (mainNav.classList.contains('open')) {
         mainNav.classList.remove('open');
       }
@@ -37,7 +43,7 @@ document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
 });
 
 // =========================
-// SCROLL HEADER BACKGROUND CHANGE (OPTIONAL)
+// SCROLL HEADER BACKGROUND CHANGE
 // =========================
 window.addEventListener('scroll', () => {
   const header = document.querySelector('header');
@@ -71,7 +77,7 @@ window.addEventListener('scroll', handleScrollAnimation);
 window.addEventListener('load', handleScrollAnimation);
 
 // =========================
-// OPTIONAL: TYPING EFFECT (if you want it back)
+// OPTIONAL: TYPING EFFECT
 // =========================
 const typingElement = document.querySelector('.typing-effect');
 if (typingElement) {
