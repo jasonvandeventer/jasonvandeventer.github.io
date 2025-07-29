@@ -319,6 +319,7 @@ nav a:hover::after {
   gap: 2rem;
   margin-top: 3rem;
   max-width: 1000px;
+  align-items: stretch;
   margin-left: auto;
   margin-right: auto;
 }
@@ -333,9 +334,10 @@ nav a:hover::after {
   transition: all 0.3s ease;
   position: relative;
   overflow: hidden;
-  min-height: 160px; /* Ensures consistent height */
+  height: 100%; /* Ensures consistent height */
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
 }
 
 .skill-card h3 {
@@ -348,6 +350,11 @@ nav a:hover::after {
   font-size: 0.9rem;
   opacity: 0.9;
   flex-grow: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 4; /* Limit to 4 lines */
+  -webkit-box-orient: vertical;
 }
 
 .skill-card:hover {
