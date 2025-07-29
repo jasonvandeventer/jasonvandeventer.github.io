@@ -35,11 +35,11 @@ Built with **HTML, CSS, and Vanilla JavaScript**, this site is hosted on **GitHu
 
 ## 🌐 Live Projects
 
-| Project                    | Description                                                                             | Live Link                                    | Repo                                                              |
-| -------------------------- | --------------------------------------------------------------------------------------- | -------------------------------------------- | ----------------------------------------------------------------- |
-| **Enterprise SIEM Lab**   | Splunk SIEM with real threat detection, analyzing 30K+ daily events and attack patterns | –                                           | [Repo](https://github.com/jasonvandeventer/enterprise-siem-lab)   |
-| **AWS DevOps Capstone**   | Scalable AWS infrastructure with ALB, EC2, S3, Route 53, ACM, GitHub Actions, and HTTPS | [Live Site](https://capstone.vanfreckle.com) | [Repo](https://github.com/jasonvandeventer/terraform_capstone)    |
-| **Terraform VPC Lab**     | Custom AWS VPC with public/private subnets, NAT Gateway, and modular design             | –                                            | [Repo](https://github.com/jasonvandeventer/terraform-vpc-lab)     |
+| Project                 | Description                                                                             | Live Link                                    | Repo                                                            |
+| ----------------------- | --------------------------------------------------------------------------------------- | -------------------------------------------- | --------------------------------------------------------------- |
+| **Enterprise SIEM Lab** | Splunk SIEM with real threat detection, analyzing 30K+ daily events and attack patterns | –                                            | [Repo](https://github.com/jasonvandeventer/enterprise-siem-lab) |
+| **AWS DevOps Capstone** | Scalable AWS infrastructure with ALB, EC2, S3, Route 53, ACM, GitHub Actions, and HTTPS | [Live Site](https://capstone.vanfreckle.com) | [Repo](https://github.com/jasonvandeventer/terraform_capstone)  |
+| **Terraform VPC Lab**   | Custom AWS VPC with public/private subnets, NAT Gateway, and modular design             | –                                            | [Repo](https://github.com/jasonvandeventer/terraform-vpc-lab)   |
 
 ---
 
