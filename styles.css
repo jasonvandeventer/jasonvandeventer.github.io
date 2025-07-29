@@ -315,11 +315,15 @@ nav a:hover::after {
 
 .skills-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 2rem;
   margin-top: 3rem;
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
+/* Force consistent card sizing */
 .skill-card {
   background: rgba(51, 65, 85, 0.3);
   backdrop-filter: blur(10px);
@@ -329,6 +333,21 @@ nav a:hover::after {
   transition: all 0.3s ease;
   position: relative;
   overflow: hidden;
+  min-height: 160px; /* Ensures consistent height */
+  display: flex;
+  flex-direction: column;
+}
+
+.skill-card h3 {
+  margin: 1rem 0 0.5rem 0;
+  font-size: 1.25rem;
+}
+
+.skill-card p {
+  margin: 0;
+  font-size: 0.9rem;
+  opacity: 0.9;
+  flex-grow: 1;
 }
 
 .skill-card:hover {
