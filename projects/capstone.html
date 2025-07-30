@@ -1,59 +1,71 @@
 <!doctype html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AWS Infrastructure Automation | Jason VanDeventer</title>
+    <link rel="stylesheet" href="/styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>AWS Infrastructure Automation | Jason VanDeventer</title>
-  <link rel="stylesheet" href="/styles.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-</head>
-
-<body>
-  <header>
-    <div class="container">
-      <div class="header-content">
-        <div class="logo">Jason VanDeventer</div>
-        <nav>
-          <ul>
-            <li><a href="/">Home</a></li>
-            <li><a href="/index.html#skills">Skills</a></li>
-            <li><a href="/index.html#projects">Projects</a></li>
-            <li><a href="/index.html#contact">Contact</a></li>
-          </ul>
-        </nav>
+  <body>
+    <header>
+      <div class="container">
+        <div class="header-content">
+          <div class="logo">Jason VanDeventer</div>
+          <nav>
+            <ul>
+              <li><a href="/">Home</a></li>
+              <li><a href="/index.html#skills">Skills</a></li>
+              <li><a href="/index.html#projects">Projects</a></li>
+              <li><a href="/index.html#contact">Contact</a></li>
+            </ul>
+          </nav>
+        </div>
       </div>
-    </div>
-  </header>
+    </header>
 
-  <section class="project-detail">
-    <div class="container">
-      <h1 class="section-title">AWS Infrastructure Automation Project</h1>
-      <p class="subtitle">
-        Production-ready AWS infrastructure built with
-        <strong>Terraform</strong>
-        ,
-        <strong>GitHub Actions</strong>
-        , and enterprise security best practices.
-      </p>
+    <section class="project-detail">
+      <div class="container">
+        <h1 class="section-title">AWS Infrastructure Automation Project</h1>
+        <p class="subtitle">
+          Production-ready AWS infrastructure built with
+          <strong>Terraform</strong>
+          ,
+          <strong>GitHub Actions</strong>
+          , and enterprise security best practices.
+        </p>
 
-      <div class="badges">
-        <img src="https://img.shields.io/badge/IaC-Terraform-844FBA?logo=terraform" alt="Terraform" />
-        <img src="https://img.shields.io/badge/Cloud-AWS-FF9900?logo=amazonaws" alt="AWS" />
-        <img src="https://img.shields.io/badge/CI/CD-GitHub_Actions-2088FF?logo=githubactions" alt="CI/CD" />
-        <img src="https://img.shields.io/badge/License-MIT-blue.svg" alt="MIT License" />
-      </div>
+        <div class="badges">
+          <img
+            src="https://img.shields.io/badge/IaC-Terraform-844FBA?logo=terraform"
+            alt="Terraform"
+          />
+          <img src="https://img.shields.io/badge/Cloud-AWS-FF9900?logo=amazonaws" alt="AWS" />
+          <img
+            src="https://img.shields.io/badge/CI/CD-GitHub_Actions-2088FF?logo=githubactions"
+            alt="CI/CD"
+          />
+          <img src="https://img.shields.io/badge/License-MIT-blue.svg" alt="MIT License" />
+        </div>
 
-      <div class="project-links">
-        <a href="http://capstone.vanfreckle.com" target="_blank" class="btn">▶ Live Demo</a>
-        <a href="https://github.com/jasonvandeventer/terraform_capstone" target="_blank" class="btn">
-          💾 GitHub Repo
-        </a>
-      </div>
+        <div class="project-links">
+          <a href="http://capstone.vanfreckle.com" target="_blank" class="btn">▶ Live Demo</a>
+          <a
+            href="https://github.com/jasonvandeventer/terraform_capstone"
+            target="_blank"
+            class="btn"
+          >
+            💾 GitHub Repo
+          </a>
+        </div>
 
-      <h2>📊 Architecture Overview</h2>
-      <!-- prettier-ignore -->
-      <div class="mermaid">
+        <h2>📊 Architecture Overview</h2>
+        <!-- prettier-ignore -->
+        <div class="mermaid">
         graph TD
         igw[Internet Gateway]
 
@@ -109,76 +121,89 @@
         ec2b --> s3
       </div>
 
-      <h2>🔑 Enterprise Features</h2>
-      <ul>
-        <li>
-          <strong>Infrastructure as Code:</strong>
-          Modular Terraform architecture with reusable components
-        </li>
-        <li>
-          <strong>Security:</strong>
-          IAM role scoping, HTTPS via ACM, private RDS networking
-        </li>
-        <li>
-          <strong>CI/CD:</strong>
-          GitHub Actions with OIDC authentication and automated deployment
-        </li>
-        <li>
-          <strong>Scalability:</strong>
-          EC2 Auto Scaling group behind Application Load Balancer
-        </li>
-        <li>
-          <strong>Observability:</strong>
-          CloudWatch logs and custom metrics integration
-        </li>
-        <li>
-          <strong>Cost Optimization:</strong>
-          Free Tier-compliant infrastructure design
-        </li>
-      </ul>
+        <h2>🔑 Enterprise Features</h2>
+        <ul>
+          <li>
+            <strong>Infrastructure as Code:</strong>
+            Modular Terraform architecture with reusable components
+          </li>
+          <li>
+            <strong>Security:</strong>
+            IAM role scoping, HTTPS via ACM, private RDS networking
+          </li>
+          <li>
+            <strong>CI/CD:</strong>
+            GitHub Actions with OIDC authentication and automated deployment
+          </li>
+          <li>
+            <strong>Scalability:</strong>
+            EC2 Auto Scaling group behind Application Load Balancer
+          </li>
+          <li>
+            <strong>Observability:</strong>
+            CloudWatch logs and custom metrics integration
+          </li>
+          <li>
+            <strong>Cost Optimization:</strong>
+            Free Tier-compliant infrastructure design
+          </li>
+        </ul>
 
-      <h2>🧠 Technical Implementation</h2>
-      <ul>
-        <li>Deployed secure, scalable cloud infrastructure using AWS best practices and Well-Architected Framework
-          principles</li>
-        <li>Implemented least-privilege IAM roles and GitHub OIDC authentication with Terraform state management</li>
-        <li>Architected multi-AZ deployment with Application Load Balancer for high availability and fault tolerance
-        </li>
-        <li>Automated infrastructure deployment using GitHub Actions for continuous integration and deployment</li>
-        <li>Integrated Route 53 DNS management with ACM certificates for secure HTTPS communications</li>
-      </ul>
+        <h2>🧠 Technical Implementation</h2>
+        <ul>
+          <li>
+            Deployed secure, scalable cloud infrastructure using AWS best practices and
+            Well-Architected Framework principles
+          </li>
+          <li>
+            Implemented least-privilege IAM roles and GitHub OIDC authentication with Terraform
+            state management
+          </li>
+          <li>
+            Architected multi-AZ deployment with Application Load Balancer for high availability and
+            fault tolerance
+          </li>
+          <li>
+            Automated infrastructure deployment using GitHub Actions for continuous integration and
+            deployment
+          </li>
+          <li>
+            Integrated Route 53 DNS management with ACM certificates for secure HTTPS communications
+          </li>
+        </ul>
 
-      <h2>📸 Production Deployment</h2>
-      <ul>
-        <li>✅ Automated GitHub Actions deployment pipeline</li>
-        <li>✅ Terraform state management with S3 backend and DynamoDB locking</li>
-        <li>✅ Production AWS infrastructure (EC2, ALB, RDS, CloudWatch, Route 53)</li>
-        <li>
-          ✅ Live production site:
-          <a href="https://capstone.vanfreckle.com" target="_blank">capstone.vanfreckle.com</a>
-        </li>
-      </ul>
+        <h2>📸 Production Deployment</h2>
+        <ul>
+          <li>✅ Automated GitHub Actions deployment pipeline</li>
+          <li>✅ Terraform state management with S3 backend and DynamoDB locking</li>
+          <li>✅ Production AWS infrastructure (EC2, ALB, RDS, CloudWatch, Route 53)</li>
+          <li>
+            ✅ Live production site:
+            <a href="https://capstone.vanfreckle.com" target="_blank">capstone.vanfreckle.com</a>
+          </li>
+        </ul>
 
-      <p class="cta">
-        🚀 This project demonstrates enterprise-grade DevOps capabilities with AWS infrastructure automation —
-        <a href="mailto:jason@vanfreckle.com" class="highlight-link">let's discuss how I can contribute to your
-          infrastructure team</a>
-        .
-      </p>
-    </div>
-  </section>
+        <p class="cta">
+          🚀 This project demonstrates enterprise-grade DevOps capabilities with AWS infrastructure
+          automation —
+          <a href="mailto:jason@vanfreckle.com" class="highlight-link">
+            let's discuss how I can contribute to your infrastructure team
+          </a>
+          .
+        </p>
+      </div>
+    </section>
 
-  <footer>
-    <div class="container">
-      <p>&copy; 2025 Jason VanDeventer. DevOps Engineer with 20+ years IT experience.</p>
-    </div>
-  </footer>
+    <footer>
+      <div class="container">
+        <p>&copy; 2025 Jason VanDeventer. DevOps Engineer with 20+ years IT experience.</p>
+      </div>
+    </footer>
 
-  <script src="/app.js"></script>
-  <script type="module">
-    import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
-    mermaid.initialize({ startOnLoad: true });
-  </script>
-</body>
-
+    <script src="/app.js"></script>
+    <script type="module">
+      import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+      mermaid.initialize({ startOnLoad: true });
+    </script>
+  </body>
 </html>

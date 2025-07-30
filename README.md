@@ -12,7 +12,7 @@
 DevOps Engineer with 20+ years of IT experience including 3+ years managing CI/CD pipelines and cloud infrastructure in classified DoD environments. This portfolio demonstrates practical DevOps capabilities through enterprise-grade projects:
 
 - Infrastructure as Code with Terraform
-- Production AWS cloud architectures  
+- Production AWS cloud architectures
 - CI/CD automation with GitHub Actions
 - Enterprise security monitoring with Splunk SIEM
 - DoD contractor experience with Active Secret Clearance
@@ -32,11 +32,11 @@ Built with **HTML5, CSS3, and Vanilla JavaScript**, hosted on **GitHub Pages** w
 
 ## 🌐 Featured Projects
 
-| Project | Description | Live Demo | Repository |
-|---------|-------------|-----------|------------|
-| **AWS Infrastructure Automation** | Production-ready AWS infrastructure with Terraform, ALB, EC2, S3, Route 53, ACM | [Live Site](https://capstone.vanfreckle.com) | [Repo](https://github.com/jasonvandeventer/terraform_capstone) |
-| **Enterprise Infrastructure Monitoring** | Splunk SIEM platform analyzing 30K+ daily events with threat detection | – | [Repo](https://github.com/jasonvandeventer/enterprise-siem-lab) |
-| **Terraform VPC Infrastructure** | Modular AWS VPC with public/private subnets and security groups | – | [Repo](https://github.com/jasonvandeventer/terraform-vpc-lab) |
+| Project                                  | Description                                                                     | Live Demo                                    | Repository                                                      |
+| ---------------------------------------- | ------------------------------------------------------------------------------- | -------------------------------------------- | --------------------------------------------------------------- |
+| **AWS Infrastructure Automation**        | Production-ready AWS infrastructure with Terraform, ALB, EC2, S3, Route 53, ACM | [Live Site](https://capstone.vanfreckle.com) | [Repo](https://github.com/jasonvandeventer/terraform_capstone)  |
+| **Enterprise Infrastructure Monitoring** | Splunk SIEM platform analyzing 30K+ daily events with threat detection          | –                                            | [Repo](https://github.com/jasonvandeventer/enterprise-siem-lab) |
+| **Terraform VPC Infrastructure**         | Modular AWS VPC with public/private subnets and security groups                 | –                                            | [Repo](https://github.com/jasonvandeventer/terraform-vpc-lab)   |
 
 ---
 
