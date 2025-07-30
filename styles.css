@@ -24,8 +24,8 @@ body {
 
 /* Header */
 header {
-  padding: 2rem 0;
-  background: rgba(15, 23, 42, 0.8);
+  padding: 1rem 0;
+  background: rgba(15, 23, 42, 0.95);
   backdrop-filter: blur(10px);
   position: fixed;
   width: 100%;
@@ -171,6 +171,7 @@ nav a:hover::after {
   text-align: center;
   position: relative;
   overflow: hidden;
+  padding-top: 80px;
 }
 
 .hero-content {
@@ -189,13 +190,21 @@ nav a:hover::after {
   animation: textGlow 3s ease-in-out infinite alternate;
 }
 
-.hero p {
+.hero-subtitle {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: #06b6d4;
+}
+
+.hero-description {
   font-size: 1.25rem;
   margin-bottom: 2rem;
-  opacity: 0.8;
-  max-width: 600px;
+  opacity: 0.9;
+  max-width: 700px;
   margin-left: auto;
   margin-right: auto;
+  line-height: 1.6;
 }
 
 .cta-button {
@@ -215,6 +224,20 @@ nav a:hover::after {
   box-shadow: 0 8px 25px rgba(59, 130, 246, 0.4);
 }
 
+@media (max-width: 768px) {
+  .hero h1 {
+    font-size: 2.5rem;
+  }
+
+  .hero-subtitle {
+    font-size: 1.2rem;
+  }
+
+  .hero-description {
+    font-size: 1.1rem;
+  }
+}
+
 /* About Section */
 .about-section {
   background: rgba(30, 41, 59, 0.5);
@@ -224,6 +247,7 @@ nav a:hover::after {
   padding: 3rem;
   color: #e2e8f0;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  scroll-margin-top: 100px;
 }
 
 .about-section h2 {
@@ -236,9 +260,13 @@ nav a:hover::after {
 .about-section p {
   font-size: 1.1rem;
   line-height: 1.6;
-  text-align: center;
+  text-align: left;
   max-width: 800px;
-  margin: 0 auto;
+  margin: 0 auto 1.5rem auto;
+}
+
+.about-section p:last-child {
+  margin-bottom: 0;
 }
 
 /* Certifications Section */
@@ -263,11 +291,12 @@ nav a:hover::after {
 .cert-section ul {
   list-style: none;
   padding: 0;
+  text-align: center;
 }
 
 .cert-section li {
   font-size: 1.1rem;
-  margin-bottom: 1rem;
+  margin-bottom: 0.5rem;
   padding-left: 1.5rem;
   position: relative;
 }
@@ -302,7 +331,8 @@ nav a:hover::after {
 /* Skills Section */
 .skills {
   padding: 5rem 0;
-  background: rgba(30, 41, 59, 0.5);
+  background: rgba(30, 41, 59, 0.3);
+  scroll-margin-top: 100px;
 }
 
 .section-title {
@@ -375,6 +405,7 @@ nav a:hover::after {
 /* Projects */
 .projects {
   padding: 5rem 0;
+  scroll-margin-top: 100px;
 }
 
 .projects-grid {
@@ -417,10 +448,31 @@ nav a:hover::after {
   color: #94a3b8;
   font-size: 1.5rem;
   transition: color 0.3s ease;
+  text-decoration: none;
 }
 
 .github-link:hover {
   color: #3b82f6;
+}
+
+.project-links {
+  margin-top: 1rem;
+}
+
+.project-links a {
+  color: #06b6d4;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.project-links a:hover {
+  color: #3b82f6;
+}
+
+.responsive-image {
+  width: 100%;
+  height: auto;
 }
 
 /* Footer */
@@ -429,6 +481,7 @@ footer {
   text-align: center;
   background: rgba(15, 23, 42, 0.8);
   backdrop-filter: blur(10px);
+  scroll-margin-top: 100px;
 }
 
 .social-links {
@@ -520,11 +573,94 @@ footer {
   transform: translateY(0);
 }
 
-/* Sticky header override */
-header {
-  position: sticky;
-  top: 0;
-  background-color: #000a1f;
-  z-index: 1000;
-  padding: 1rem 0;
+/* Project Detail Page Styles */
+.project-detail {
+  padding: 8rem 0 5rem 0;
+  min-height: 100vh;
+}
+
+.project-detail h1 {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.project-detail .subtitle {
+  text-align: center;
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+  opacity: 0.9;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.badges {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin: 2rem 0;
+  flex-wrap: wrap;
+}
+
+.project-links {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin: 2rem 0;
+  flex-wrap: wrap;
+}
+
+.btn {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  background: linear-gradient(45deg, #3b82f6, #06b6d4);
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(59, 130, 246, 0.3);
+}
+
+.project-detail h2 {
+  margin: 3rem 0 1rem 0;
+  color: #f1f5f9;
+}
+
+.project-detail ul {
+  margin: 1rem 0;
+  padding-left: 2rem;
+}
+
+.project-detail li {
+  margin-bottom: 0.5rem;
+  line-height: 1.6;
+}
+
+.cta {
+  text-align: center;
+  margin: 3rem 0;
+  font-size: 1.1rem;
+}
+
+.highlight-link {
+  color: #06b6d4;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.highlight-link:hover {
+  color: #3b82f6;
+}
+
+.mermaid {
+  text-align: center;
+  margin: 2rem 0;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  padding: 2rem;
 }

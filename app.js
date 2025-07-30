@@ -7,15 +7,12 @@ document.addEventListener('DOMContentLoaded', () => {
       // Toggle the mobile nav visibility
       mainNav.classList.toggle('open');
 
-      // ✅ TEMP DEBUG: flash the hamburger button red to confirm JS runs
-      menuToggle.style.backgroundColor = 'red';
+      // Visual feedback for mobile menu interaction
+      menuToggle.style.backgroundColor = 'rgba(59, 130, 246, 0.2)';
       setTimeout(() => {
-        menuToggle.style.backgroundColor = ''; // revert after 300ms
+        menuToggle.style.backgroundColor = '';
       }, 300);
     });
-  } else {
-    // Optional: log warning if elements not found
-    console.warn('⚠️ menu-toggle or main-nav not found in DOM');
   }
 });
 
@@ -35,7 +32,8 @@ document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
       });
 
       // Close mobile menu after clicking a link
-      if (mainNav.classList.contains('open')) {
+      const mainNav = document.getElementById('main-nav');
+      if (mainNav && mainNav.classList.contains('open')) {
         mainNav.classList.remove('open');
       }
     }
@@ -48,9 +46,9 @@ document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
 window.addEventListener('scroll', () => {
   const header = document.querySelector('header');
   if (window.scrollY > 50) {
-    header.style.background = 'rgba(15, 23, 42, 0.95)';
+    header.style.background = 'rgba(15, 23, 42, 0.98)';
   } else {
-    header.style.background = 'rgba(15, 23, 42, 0.85)';
+    header.style.background = 'rgba(15, 23, 42, 0.95)';
   }
 });
 
@@ -67,8 +65,6 @@ function handleScrollAnimation() {
 
     if (elementTop < triggerBottom) {
       el.classList.add('visible');
-    } else {
-      el.classList.remove('visible');
     }
   });
 }
@@ -77,25 +73,7 @@ window.addEventListener('scroll', handleScrollAnimation);
 window.addEventListener('load', handleScrollAnimation);
 
 // =========================
-// OPTIONAL: TYPING EFFECT
-// =========================
-const typingElement = document.querySelector('.typing-effect');
-if (typingElement) {
-  const text = typingElement.dataset.text || '';
-  let index = 0;
-
-  function typeEffect() {
-    if (index < text.length) {
-      typingElement.textContent += text.charAt(index);
-      index++;
-      setTimeout(typeEffect, 100);
-    }
-  }
-  typeEffect();
-}
-
-// =========================
-// OPTIONAL: CARD HOVER EFFECTS
+// CARD HOVER EFFECTS
 // =========================
 document.querySelectorAll('.skill-card, .project-card').forEach((card) => {
   card.addEventListener('mouseenter', () => card.classList.add('hovered'));
@@ -103,15 +81,21 @@ document.querySelectorAll('.skill-card, .project-card').forEach((card) => {
 });
 
 // =========================
-// OPTIONAL: PROGRESS BAR ANIMATION
+// FORM ENHANCEMENT
 // =========================
-const progressBars = document.querySelectorAll('.progress-fill');
+const contactForm = document.querySelector('.contact-form');
+if (contactForm) {
+  contactForm.addEventListener('submit', function (e) {
+    const submitButton = this.querySelector('button[type="submit"]');
+    if (submitButton) {
+      submitButton.textContent = 'Sending...';
+      submitButton.disabled = true;
 
-function animateProgressBars() {
-  progressBars.forEach((bar) => {
-    const targetWidth = bar.dataset.progress || '80%';
-    bar.style.width = targetWidth;
+      // Re-enable after 3 seconds (form will likely redirect/refresh)
+      setTimeout(() => {
+        submitButton.textContent = 'Send Message';
+        submitButton.disabled = false;
+      }, 3000);
+    }
   });
 }
-
-window.addEventListener('load', animateProgressBars);
